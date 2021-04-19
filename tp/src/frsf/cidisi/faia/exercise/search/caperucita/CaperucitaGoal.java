@@ -7,10 +7,13 @@ public class CaperucitaGoal extends GoalTest{
 
 	@Override
 	public boolean isGoalState(AgentState agentState) {
-		// TODO Auto-generated method stub > prueba de meta
-		return false;
-	}
+		
+		if (((CaperucitaAgentState) agentState).estaEnCampoDeFlores() && ((CaperucitaAgentState) agentState).tieneVidas()) {
+            return true;
+        }
+        return false;
+
+
+}
 	
-
-
 }

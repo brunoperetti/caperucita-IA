@@ -36,6 +36,14 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 	@Override
 	public void updateState(Perception p) {
 		
+		//actualizar mapa del agente acá
+		
+		CaperucitaPerception caperucitaPerception = (CaperucitaPerception) p;		
+		
+		int fil = this.getPosicionFila(); 
+		int col = this.getPosicionColumna();
+		
+		
 		
 	}
 
@@ -122,6 +130,17 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
     	cantDulcesRecolectados = 0;
     	posicionActual = posicionInicial;
     	
+    }
+    
+    public boolean estaEnCampoDeFlores() {
+
+    	int fil = getPosicionFila();
+    	int col = getPosicionColumna();
+    	
+    	if (mapa [fil][col] == CaperucitaPerception.FLORES_PERCEPTION) {
+    		return true;
+    	}
+    	return false;
     }
 
 }
