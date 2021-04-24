@@ -3,6 +3,7 @@ package frsf.cidisi.faia.exercise.search.caperucita;
 import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
 
+
 public class CaperucitaAgentState extends SearchBasedAgentState {
 
 	
@@ -22,9 +23,29 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
     }
 	
 	@Override
-	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean equals(Object obj) { //ojo, está hecho analogamente como el del pacman
+
+		if (!(obj instanceof CaperucitaAgentState))
+            return false;
+
+        int[][] worldObj = ((CaperucitaAgentState) obj).getMapa();
+        int[] positionObj = ((CaperucitaAgentState) obj).getPosicionActual();
+
+        for (int row = 0; row < mapa.length; row++) {
+            for (int col = 0; col < mapa.length; col++) {
+                if (mapa[row][col] != worldObj[row][col]) {
+                    return false;
+                }
+            }
+        }
+
+        if (posicionActual[0] != positionObj[0] || posicionActual[1] != positionObj[1]) {
+            return false;
+        }
+        
+        return true;
+		
+
 	}
 
 	@Override
@@ -37,11 +58,20 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 	public void updateState(Perception p) {
 		
 		//actualizar mapa del agente acá
-		
+	
 		CaperucitaPerception caperucitaPerception = (CaperucitaPerception) p;		
 		
-		int fil = this.getPosicionFila(); 
-		int col = this.getPosicionColumna();
+		int fil = this.getPosicionFila();
+	    int col = this.getPosicionColumna();
+		
+		/*mapa[fil][col] = caperucitaPerception.getSensorIzquierda();
+		mapa[fil][col] = caperucitaPerception.getSensorDerecha();
+		mapa[fil][col] = caperucitaPerception.getSensorAbajo();
+		mapa[fil][col] = caperucitaPerception.getSensorArriba();*/
+		
+		//for para cada asignacion, ojo con la ubicacion de las celdas, segun mapa de bruno
+		
+		
 		
 		
 		
@@ -54,10 +84,20 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 	}
 
 	@Override
-	public void initState() {
-		// TODO Auto-generated method stub
+	public void initState() {		
+		//Situación inicial de caperucita
 		
-		//cargar situacion inicial
+		for (int fil = 0; fil < mapa.length; fil++) {
+            for (int col = 0; col < mapa.length; col++) {
+                mapa[fil][col] = CaperucitaPerception.DESCONOCIDO_PERCEPTION;
+            }
+        }
+		
+        this.setPosicionFila(5);
+        this.setPosicionColumna(11);
+
+        this.setDulcesRecolectados(0);
+        this.setVidasRestantes(3);
 		
 	}
 	
@@ -77,12 +117,24 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
     	this.posicionActual[1] = value;
     }
     
+    public void setDulcesRecolectados (int value) {
+    	this.cantDulcesRecolectados = value;
+    }
+    
+    public void setVidasRestantes (int value) {
+    	this.vidasRestantes = value;
+    }
+    
     public int[][] getMapa() {
         return mapa;
     }
     
     public int getPosicionMapa(int row, int col) {
         return mapa[row][col];
+    }
+    
+    public int [] getPosicionActual () {
+    	return posicionActual;
     }
     
     public void setPosicionMapa(int fil, int col, int value) {

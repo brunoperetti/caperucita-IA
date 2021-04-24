@@ -58,12 +58,30 @@ public class CaperucitaPerception extends Perception {
         int fil = environmentState.getPosicionCaperucita()[0];
         int col = environmentState.getPosicionCaperucita()[1];
 
+        
+      // ---- MOVIMIENTO DEL LOBO 
+      		int i=1;
+      		boolean flag = false;
+      		
+      		while (environmentState.getPosicionMapaCaperucita(fil-i,col)!=CaperucitaPerception.ARBOL_PERCEPTION) {
+              	//mientras la celda de arriba no sea arbol
+      			environmentState.setPosicionFilaCaperucita(fil-i);
+              	//caperucitaAgentState.setPosicionFila(fil-i); //esto No sabemos si va, porque ya está en el otro execute.
+
+              	i++;
+              	flag=true;
+              }
+
+              if (flag=true) {
+              	environmentState.moverLobo();
+              }
+        // -- TERMINA MOVIMIENTO DEL LOBO
+        
         this.setSensorArriba(caperucitaEnvironment.getCeldasArriba(fil, col,environmentState));
         this.setSensorIzquierda(caperucitaEnvironment.getCeldasDerecha(fil, col));
         this.setSensorDerecha(caperucitaEnvironment.getCeldasIzquierda(fil, col));
         this.setSensorAbajo(caperucitaEnvironment.getCeldasAbajo(fil, col));
-        
-        
+                
     }
 	
 	
@@ -84,8 +102,22 @@ public class CaperucitaPerception extends Perception {
         this.detectarDerecha = rightSensor;
     }
 	
+	public int[] getSensorArriba() {
+        return this.detectarArriba;     
+    }
 	
-		
+	public int[] getSensorIzquierda() {
+        return this.detectarArriba;     
+    }
+	
+	public int[] getSensorAbajo() {
+        return this.detectarArriba;     
+    }
+	
+	public int[] getSensorDerecha() {
+        return this.detectarArriba;     
+    }
+	
 	}
 
 
