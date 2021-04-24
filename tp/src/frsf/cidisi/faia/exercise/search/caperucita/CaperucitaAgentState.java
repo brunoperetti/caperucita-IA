@@ -79,8 +79,29 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+			
+		String str = "";
+
+        str = str + " Posicion=(" + getPosicionFila() + "," + "" + getPosicionColumna() + ")";
+        str = str + " -- Dulces: " + cantDulcesRecolectados + "";
+        str = str + " -- Vidas: " + vidasRestantes + "\n";
+
+        str = str + "Mapa del agente=[ \n";
+        for (int row = 0; row < mapa.length; row++) {
+            str = str + "[ ";
+            for (int col = 0; col < mapa.length; col++) {
+                if (mapa[row][col] == -1) {
+                    str = str + "* ";
+                } else {
+                    str = str + mapa[row][col] + " ";
+                }
+            }
+            str = str + " ]\n";
+        }
+        str = str + " ]";
+
+        return str;
+		
 	}
 
 	@Override

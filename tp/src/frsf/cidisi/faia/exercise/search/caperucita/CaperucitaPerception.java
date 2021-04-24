@@ -19,7 +19,7 @@ public class CaperucitaPerception extends Perception {
     
 
     //percepciones. Arreglos de enteros que contienen los valores de cada celda del mapa según percibe el agente.
-    private int detectarArriba[];
+    private int detectarArriba[]= {0,1};
     private int detectarAbajo[];
     private int detectarDerecha[];
     private int detectarIzquierda[];
@@ -27,7 +27,7 @@ public class CaperucitaPerception extends Perception {
     public CaperucitaPerception() {
     	
     	//inicializamos las percepciones
-    	for (int i = 0; i < detectarArriba.length; i++) {
+    	/*for (int i = 0; i < detectarArriba.length; i++) {
     		detectarArriba[i] = DESCONOCIDO_PERCEPTION;
     	}
     	
@@ -42,7 +42,7 @@ public class CaperucitaPerception extends Perception {
     	for (int i = 0; i < detectarIzquierda.length; i++) {
     		detectarIzquierda[i] = DESCONOCIDO_PERCEPTION;
     	}
-    	
+    	*/
     }
     
 	@Override
@@ -116,6 +116,21 @@ public class CaperucitaPerception extends Perception {
 	
 	public int[] getSensorDerecha() {
         return this.detectarArriba;     
+    }
+	
+	@Override
+    public String toString() {
+        StringBuffer str = new StringBuffer();
+
+        str.append("Arriba: " + this.detectarArriba );
+        str.append("; ");
+        str.append("Abajo: " + this.detectarAbajo);
+        str.append("; ");
+        str.append("Derecha: " + this.detectarDerecha);
+        str.append("; ");
+        str.append("Izquierda: " + this.detectarIzquierda);
+
+        return str.toString();
     }
 	
 	}

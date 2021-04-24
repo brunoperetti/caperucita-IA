@@ -15,7 +15,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
     private int[] posicionArboles;
 	
     public CaperucitaEnvironmentState() {
-    	mapa = new int[8][13];
+    	mapa = new int[9][14];
         this.initState();
     }
     
@@ -266,8 +266,19 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		String str = "";
+
+        str = str + "[ \n";
+        for (int row = 0; row < mapa.length; row++) {
+            str = str + "[ ";
+            for (int col = 0; col < mapa.length; col++) {
+                str = str + mapa[row][col] + " ";
+            }
+            str = str + " ]\n";
+        }
+        str = str + " ]";
+
+        return str;
 	}
 	
 	public int[] getPosicionCaperucita() {

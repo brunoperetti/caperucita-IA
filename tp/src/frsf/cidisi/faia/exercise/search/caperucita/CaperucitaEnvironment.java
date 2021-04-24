@@ -71,6 +71,11 @@ public class CaperucitaEnvironment extends Environment {
 	public int[] getCeldasArriba (int fil, int col) {
 	return null; //todo
 	}
+	
+	 @Override
+	    public String toString() {
+	        return environmentState.toString();
+	    }
 
 
 
