@@ -18,7 +18,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 		posicionInicial = new int[2];
         cantDulcesRecolectados = 0;
         vidasRestantes = 3;
-        mapa = new int[8][13];
+        mapa = new int[9][14];
         this.initState();
     }
 	
@@ -89,7 +89,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
         str = str + "Mapa del agente=[ \n";
         for (int row = 0; row < mapa.length; row++) {
             str = str + "[ ";
-            for (int col = 0; col < mapa.length; col++) {
+            for (int col = 0; col < mapa[0].length; col++) {
                 if (mapa[row][col] == -1) {
                     str = str + "* ";
                 } else {
@@ -109,7 +109,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 		//Situación inicial de caperucita
 		
 		for (int fil = 0; fil < mapa.length; fil++) {
-            for (int col = 0; col < mapa.length; col++) {
+            for (int col = 0; col < mapa[0].length; col++) {
                 mapa[fil][col] = CaperucitaPerception.DESCONOCIDO_PERCEPTION;
             }
         }

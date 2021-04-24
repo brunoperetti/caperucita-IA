@@ -19,7 +19,7 @@ public class CaperucitaPerception extends Perception {
     
 
     //percepciones. Arreglos de enteros que contienen los valores de cada celda del mapa según percibe el agente.
-    private int detectarArriba[]= {0,1};
+    private int detectarArriba[];
     private int detectarAbajo[];
     private int detectarDerecha[];
     private int detectarIzquierda[];

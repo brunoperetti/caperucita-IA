@@ -271,7 +271,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
         str = str + "[ \n";
         for (int row = 0; row < mapa.length; row++) {
             str = str + "[ ";
-            for (int col = 0; col < mapa.length; col++) {
+            for (int col = 0; col < mapa[0].length; col++) {
                 str = str + mapa[row][col] + " ";
             }
             str = str + " ]\n";
