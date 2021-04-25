@@ -71,6 +71,41 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 		
 		//for para cada asignacion, ojo con la ubicacion de las celdas, segun mapa de bruno
 		
+	    
+	 
+	    
+	    // ---- ACTUALIZAR MAPA DEL AGENTE ----
+	    
+	    //actualiza mapa segun percepción detectarArriba
+		int posArr=0;
+	    for (int i=fil-1;i>=0;i--) {
+		mapa[i][col] = caperucitaPerception.getSensorArriba()[posArr];
+		posArr++;
+		}
+		
+		//actualiza mapa segun percepción detectarAbajo
+		int posAba=0;
+		for (int i=fil+1;i<=8;i++) {
+			mapa[i][col] = caperucitaPerception.getSensorAbajo()[posAba];
+			posAba++;
+		}
+		
+		//actualiza mapa segun percepción detectarDerecha
+		int posDer=0;
+		for (int j=col+1;j<=13;j++) {
+			mapa[fil][j] = caperucitaPerception.getSensorDerecha()[posDer];
+			posDer++;
+		}
+		
+		//actualiza mapa segun percepción detectarIzq
+		int posIzq=0;
+		for (int j=col-1;j>=0;j--) {
+			mapa[fil][j] = caperucitaPerception.getSensorIzquierda()[posIzq];
+			posIzq++;
+		}
+		
+		
+		
 		
 		
 		
