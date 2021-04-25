@@ -77,9 +77,10 @@ public class CaperucitaPerception extends Perception {
               }
         // -- TERMINA MOVIMIENTO DEL LOBO
         
+        //EL AGENTE PERCIBE::
         this.setSensorArriba(caperucitaEnvironment.getCeldasArriba(fil, col));
-        this.setSensorIzquierda(caperucitaEnvironment.getCeldasDerecha(fil, col));
-        this.setSensorDerecha(caperucitaEnvironment.getCeldasIzquierda(fil, col));
+        this.setSensorIzquierda(caperucitaEnvironment.getCeldasIzquierda(fil, col));
+        this.setSensorDerecha(caperucitaEnvironment.getCeldasDerecha(fil, col));
         this.setSensorAbajo(caperucitaEnvironment.getCeldasAbajo(fil, col));
                 
     }
@@ -107,28 +108,57 @@ public class CaperucitaPerception extends Perception {
     }
 	
 	public int[] getSensorIzquierda() {
-        return this.detectarArriba;     
+        return this.detectarIzquierda;     
     }
 	
 	public int[] getSensorAbajo() {
-        return this.detectarArriba;     
+        return this.detectarAbajo;     
     }
 	
 	public int[] getSensorDerecha() {
-        return this.detectarArriba;     
+        return this.detectarDerecha;     
     }
 	
 	@Override
     public String toString() {
         StringBuffer str = new StringBuffer();
+       
+        //arriba
+        str.append("Arriba: [ ");
+        for (int pos = 0; pos < detectarArriba.length; pos++) {
+        	
+            str.append(this.detectarArriba[pos]);
+            str.append(" ");
+        }
+        str.append("] -- ");
+        
 
-        str.append("Arriba: " + this.detectarArriba );
-        str.append("; ");
-        str.append("Abajo: " + this.detectarAbajo);
-        str.append("; ");
-        str.append("Derecha: " + this.detectarDerecha);
-        str.append("; ");
-        str.append("Izquierda: " + this.detectarIzquierda);
+      //abajo
+        str.append("Abajo: [ ");
+        for (int pos = 0; pos < detectarAbajo.length; pos++) {
+        	
+            str.append(this.detectarAbajo[pos]);
+            str.append(" ");
+        }
+        str.append("] -- ");
+        
+      //Der
+        str.append("Derecha: [ ");
+        for (int pos = 0; pos < detectarDerecha.length; pos++) {
+        	
+            str.append(this.detectarDerecha[pos]);
+            str.append(" ");
+        }
+        str.append("] -- ");
+        
+      //izq
+        str.append("Izquierda: [ ");
+        for (int pos = 0; pos < detectarIzquierda.length; pos++) {
+        	
+            str.append(this.detectarIzquierda[pos]);
+            str.append(" ");
+        }
+        str.append("] ");
 
         return str.toString();
     }

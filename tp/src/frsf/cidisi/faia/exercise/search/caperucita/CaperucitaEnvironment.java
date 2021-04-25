@@ -26,8 +26,8 @@ public class CaperucitaEnvironment extends Environment {
         int col = this.getEnvironmentState().getPosicionCaperucita()[1];
 
         perception.setSensorArriba(this.getCeldasArriba(fil, col));
-        perception.setSensorIzquierda(this.getCeldasDerecha(fil, col));
-        perception.setSensorDerecha(this.getCeldasIzquierda(fil, col));
+        perception.setSensorIzquierda(this.getCeldasIzquierda(fil, col));
+        perception.setSensorDerecha(this.getCeldasDerecha(fil, col));
         perception.setSensorAbajo(this.getCeldasAbajo(fil, col));
         
         return perception;

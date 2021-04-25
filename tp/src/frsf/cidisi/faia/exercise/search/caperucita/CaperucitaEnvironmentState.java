@@ -350,31 +350,75 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 
 
 	public int[] getCeldasAbajo(int fil, int col) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		int arrayValoresAbajo[];
+		arrayValoresAbajo = new int[8-fil];  //El numero de valores que tendrá el arreglo será igual a (8 - n° de fil)
+		int pos=0;
+		
+		for (int i=fil+1;i<=8;i++) {
+			arrayValoresAbajo[pos] = mapa[i][col];
+			pos++;
+		}
+		
+		////Retorna los valores de las celdas de la abajo de la posicion pasada como parametro. 
+		//La posicion 0 del arrayValoresAbajo representa el valor de la posicion mas cernana hacia abajo
+		
+		return arrayValoresAbajo;
+		
 	}
 
 
 	public int[] getCeldasDerecha(int fil, int col) {
-		// TODO Auto-generated method stub
-		return null;
+
+		int arrayValoresDerecha[];
+		arrayValoresDerecha = new int[13-col];  //El numero de valores que tendrá el arreglo será igual a 13 - n° de col donde está.
+		int pos=0;
+		
+		for (int j=col+1;j<=13;j++) {
+			arrayValoresDerecha[pos] = mapa[fil][j];
+			pos++;
+		}
+		
+		//
+		
+		return arrayValoresDerecha;
+		
+		//Retorna los valores de las celdas de la derecha de la posicion pasada como parametro. 
+		//La posicion 0 del arrayValoresDer representa el valor de la posicion mas cernana hacia der
+		
 	}
 
 
 	public int[] getCeldasIzquierda(int fil, int col) {
-		// TODO Auto-generated method stub
-		return null;
+		int arrayValoresIzquierda[];
+		arrayValoresIzquierda = new int[col];  //El numero de valores que tendrá el arreglo será igual al n° de col donde está.
+		int pos=0;
+		
+		for (int j=col-1;j>=0;j--) {
+			arrayValoresIzquierda[pos] = mapa[fil][j];
+			pos++;
+		}
+		
+		//
+		
+		return arrayValoresIzquierda;
+		
+		//Retorna los valores de las celdas de la izquierda de la posicion pasada como parametro. 
+		//La posicion 0 del arrayValoresIzquierda representa el valor de la posicion mas cernana hacia izq
 	}
 
 
 	public int[] getCeldasArriba(int fil, int col) {
-		int arrayValoresArriba[] = null;
-		int j=0;
+		int arrayValoresArriba[];
+		arrayValoresArriba = new int[fil];  //El numero de valores que tendrá el arreglo será igual al n° de fila donde está.
+		int pos=0;
 		
 		for (int i=fil-1;i>=0;i--) {
-			arrayValoresArriba[j] = mapa[i][col];
-			j++;
+			arrayValoresArriba[pos] = mapa[i][col];
+			pos++;
 		}
+		
+		//
 		
 		return arrayValoresArriba;
 		
