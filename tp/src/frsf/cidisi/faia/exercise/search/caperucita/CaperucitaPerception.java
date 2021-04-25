@@ -77,7 +77,7 @@ public class CaperucitaPerception extends Perception {
               }
         // -- TERMINA MOVIMIENTO DEL LOBO
         
-        this.setSensorArriba(caperucitaEnvironment.getCeldasArriba(fil, col,environmentState));
+        this.setSensorArriba(caperucitaEnvironment.getCeldasArriba(fil, col));
         this.setSensorIzquierda(caperucitaEnvironment.getCeldasDerecha(fil, col));
         this.setSensorDerecha(caperucitaEnvironment.getCeldasIzquierda(fil, col));
         this.setSensorAbajo(caperucitaEnvironment.getCeldasAbajo(fil, col));

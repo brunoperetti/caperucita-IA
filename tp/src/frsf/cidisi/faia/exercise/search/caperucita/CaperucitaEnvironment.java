@@ -35,41 +35,25 @@ public class CaperucitaEnvironment extends Environment {
 	}
 	
 	//MÉTODOS PARA OBTENER LAS CELDAS DEL AMBIENTE
-	
-	public int[] getCeldasArriba (int fil, int col, CaperucitaEnvironmentState environmentState) {
-
-		//int mapa[][] = this.getMapa();
-		int arrayValoresArriba[] = null;
-		int j=0;
 		
-		for (int i=fil-1;i>=0;i--) {
-			arrayValoresArriba[j] = environmentState.getMapa()[i][col];
-			j++;
-		}
-		
-		return arrayValoresArriba;
-		
-		//Retorna los valores de las celdas de arriba de la posicion pasada como parametro. 
-		//La posicion 0 del arrayValoresArriba representa el valor de la posicion mas cernana hacia arriba
-    }
-	
 	public int[] getCeldasAbajo (int fil, int col) {
-		int arrayEjemplo[] = null;
-		return arrayEjemplo;
+		return ((CaperucitaEnvironmentState) this.environmentState)
+                .getCeldasAbajo(fil, col);
     }
 	
 	public int[] getCeldasDerecha (int fil, int col) {
-		int arrayEjemplo[] = null;
-		return arrayEjemplo;
+		return ((CaperucitaEnvironmentState) this.environmentState)
+                .getCeldasDerecha(fil, col);
     }
 	
 	public int[] getCeldasIzquierda (int fil, int col) {
-		int arrayEjemplo[] = null;
-		return arrayEjemplo;
+		return ((CaperucitaEnvironmentState) this.environmentState)
+                .getCeldasIzquierda(fil, col);
     }
 	
 	public int[] getCeldasArriba (int fil, int col) {
-	return null; //todo
+		return ((CaperucitaEnvironmentState) this.environmentState)
+                .getCeldasArriba(fil, col);
 	}
 	
 	 @Override

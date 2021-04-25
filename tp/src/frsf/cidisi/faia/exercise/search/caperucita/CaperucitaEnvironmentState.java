@@ -347,5 +347,39 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 		
 		
 	}
+
+
+	public int[] getCeldasAbajo(int fil, int col) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public int[] getCeldasDerecha(int fil, int col) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public int[] getCeldasIzquierda(int fil, int col) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public int[] getCeldasArriba(int fil, int col) {
+		int arrayValoresArriba[] = null;
+		int j=0;
+		
+		for (int i=fil-1;i>=0;i--) {
+			arrayValoresArriba[j] = mapa[i][col];
+			j++;
+		}
+		
+		return arrayValoresArriba;
+		
+		//Retorna los valores de las celdas de arriba de la posicion pasada como parametro. 
+		//La posicion 0 del arrayValoresArriba representa el valor de la posicion mas cernana hacia arriba
+	}
 	
 }
