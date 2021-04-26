@@ -13,6 +13,18 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
     private int vidasRestantes;
 	private int[][] mapa;
 
+	
+	
+	public CaperucitaAgentState(int[][] m, int fil, int col, int dulces, int vidas) {
+        mapa = m;
+        posicionActual = new int[] {fil, col};
+        posicionInicial = new int[2];
+        posicionInicial[0] = fil;
+        posicionInicial[1] = col;
+        cantDulcesRecolectados = dulces;
+        vidasRestantes = vidas;
+    }
+	
 	public CaperucitaAgentState() { //constructor
 		posicionActual = new int[2];
 		posicionInicial = new int[2];
@@ -28,12 +40,12 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 		if (!(obj instanceof CaperucitaAgentState))
             return false;
 
-        int[][] worldObj = ((CaperucitaAgentState) obj).getMapa();
+        int[][] mapaObj = ((CaperucitaAgentState) obj).getMapa();
         int[] positionObj = ((CaperucitaAgentState) obj).getPosicionActual();
 
         for (int row = 0; row < mapa.length; row++) {
             for (int col = 0; col < mapa.length; col++) {
-                if (mapa[row][col] != worldObj[row][col]) {
+                if (mapa[row][col] != mapaObj[row][col]) {
                     return false;
                 }
             }
@@ -50,8 +62,22 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 
 	@Override
 	public SearchBasedAgentState clone() {
-		// TODO Auto-generated method stub
-		return null;
+		int[][] nuevoMapa = new int[9][14];
+
+        for (int row = 0; row < mapa.length; row++) {
+            for (int col = 0; col < mapa.length; col++) {
+            	nuevoMapa[row][col] = mapa[row][col];
+            }
+        }
+
+        int[] nuevaPosicion = new int[2];
+        nuevaPosicion[0] = posicionActual[0];
+        nuevaPosicion[1] = posicionActual[1];
+
+        CaperucitaAgentState nuevoEstado = new CaperucitaAgentState(nuevoMapa,
+                this.getPosicionFila(), this.getPosicionColumna(), this.cantDulcesRecolectados, this.vidasRestantes);
+
+        return nuevoEstado;
 	}
 
 	@Override

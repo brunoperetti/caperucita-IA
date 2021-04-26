@@ -46,8 +46,7 @@ public class CaperucitaAgent extends SearchBasedAgent{
 
 	@Override
 	public void see(Perception p) {
-		// TODO Auto-generated method stub
-		
+		this.getAgentState().updateState(p);		
 	}
 
 	@Override
