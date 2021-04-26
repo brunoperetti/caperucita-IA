@@ -23,14 +23,14 @@ public class MoverseAbajo extends SearchAction {
         
         //agregar precond
         
-        while (caperucitaState.getPosicionMapa(fil-i,col)!=CaperucitaPerception.ARBOL_PERCEPTION) {
+        while (caperucitaState.getPosicionMapa(fil+i,col)!=CaperucitaPerception.ARBOL_PERCEPTION) {
         	//mientras la celda de arriba no sea arbol
-        	caperucitaState.setPosicionFila(fil-i);
+        	caperucitaState.setPosicionFila(fil+i);
         	i++;
         	flag=true;
         }
 
-        if (flag=true) {
+        if (flag==true) {
         	return caperucitaState;
         }
         else return null;       	

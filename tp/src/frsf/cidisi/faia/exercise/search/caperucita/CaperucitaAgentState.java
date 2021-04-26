@@ -44,7 +44,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
         int[] positionObj = ((CaperucitaAgentState) obj).getPosicionActual();
 
         for (int row = 0; row < mapa.length; row++) {
-            for (int col = 0; col < mapa.length; col++) {
+            for (int col = 0; col < mapa[0].length; col++) {
                 if (mapa[row][col] != mapaObj[row][col]) {
                     return false;
                 }
@@ -65,7 +65,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 		int[][] nuevoMapa = new int[9][14];
 
         for (int row = 0; row < mapa.length; row++) {
-            for (int col = 0; col < mapa.length; col++) {
+            for (int col = 0; col < mapa[0].length; col++) {
             	nuevoMapa[row][col] = mapa[row][col];
             }
         }

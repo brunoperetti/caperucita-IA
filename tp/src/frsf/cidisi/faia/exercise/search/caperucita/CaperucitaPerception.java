@@ -45,6 +45,10 @@ public class CaperucitaPerception extends Perception {
     	*/
     }
     
+    public CaperucitaPerception(Agent agent, Environment environment) {
+        super(agent, environment);
+    }
+    
 	@Override
 	public void initPerception(Agent agent, Environment environment) {
 		

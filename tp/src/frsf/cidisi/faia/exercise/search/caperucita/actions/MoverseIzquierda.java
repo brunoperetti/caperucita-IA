@@ -28,7 +28,7 @@ public class MoverseIzquierda extends SearchAction {
         	flag=true;
         }
 
-        if (flag=true) {
+        if (flag==true) {
         	return caperucitaState;
         }
         else return null;   

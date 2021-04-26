@@ -13,7 +13,6 @@ public class MoverseDerecha extends SearchAction {
 	@Override
 	public SearchBasedAgentState execute(SearchBasedAgentState s) {
 		CaperucitaAgentState caperucitaState = (CaperucitaAgentState) s;
-
         int fil = caperucitaState.getPosicionFila();
         int col = caperucitaState.getPosicionColumna();
 		
@@ -21,16 +20,18 @@ public class MoverseDerecha extends SearchAction {
         boolean flag= false;
         
         while (caperucitaState.getPosicionMapa(fil,col+j)!=CaperucitaPerception.ARBOL_PERCEPTION) {
-        	//mientras la celda de arriba no sea arbol
+        	//mientras la celda de derecha no sea arbol
         	caperucitaState.setPosicionColumna(col+j);
         	j++;
         	flag=true;
         }
 
-        if (flag=true) {
+        if (flag==true) {
         	return caperucitaState;
         }
-        else return null;   
+        else {
+        	return null;   
+        }
 	}
 
 	@Override
