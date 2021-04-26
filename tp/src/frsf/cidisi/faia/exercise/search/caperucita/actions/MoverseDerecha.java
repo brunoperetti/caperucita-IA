@@ -7,6 +7,7 @@ import frsf.cidisi.faia.exercise.search.caperucita.CaperucitaEnvironmentState;
 import frsf.cidisi.faia.exercise.search.caperucita.CaperucitaPerception;
 import frsf.cidisi.faia.state.AgentState;
 import frsf.cidisi.faia.state.EnvironmentState;
+//suponer arboles, campo de flores en estado agente, limitar tamaño 
 
 public class MoverseDerecha extends SearchAction {
 
@@ -19,7 +20,7 @@ public class MoverseDerecha extends SearchAction {
         int j=1;
         boolean flag= false;
         
-        while (caperucitaState.getPosicionMapa(fil,col+j)!=CaperucitaPerception.ARBOL_PERCEPTION) {
+        while ((caperucitaState.getPosicionMapa(fil,col+j)!=CaperucitaPerception.ARBOL_PERCEPTION) && ((col+j)< 13)) {
         	//mientras la celda de derecha no sea arbol
         	caperucitaState.setPosicionColumna(col+j);
         	j++;

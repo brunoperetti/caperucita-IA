@@ -10,7 +10,9 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 	private int[] posicionActual;
 	private int[] posicionInicial;
     private int cantDulcesRecolectados;
-    private int vidasRestantes;
+   
+
+	private int vidasRestantes;
 	private int[][] mapa;
 	private int celdasVisitadas;
 
@@ -43,6 +45,9 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 
         int[][] mapaObj = ((CaperucitaAgentState) obj).getMapa();
         int[] positionObj = ((CaperucitaAgentState) obj).getPosicionActual();
+        int dulcesObj =  ((CaperucitaAgentState) obj).getCantDulcesRecolectados();
+        int vidasObj = ((CaperucitaAgentState) obj).getVidasRestantes();
+        int celdasObj =  ((CaperucitaAgentState) obj).getCeldasVisitadas();
 
         for (int row = 0; row < mapa.length; row++) {
             for (int col = 0; col < mapa[0].length; col++) {
@@ -56,6 +61,18 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
             return false;
         }
         
+        if (cantDulcesRecolectados != dulcesObj ) {
+            return false;
+        }
+        
+        if (vidasRestantes != vidasObj ) {
+            return false;
+        }
+        
+        if (celdasVisitadas != celdasObj) {
+        	return false;
+        }
+                
         return true;
 		
 
@@ -206,6 +223,22 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
     	this.vidasRestantes = value;
     }
     
+    public int getCantDulcesRecolectados() {
+		return cantDulcesRecolectados;
+	}
+
+	public void setCantDulcesRecolectados(int cantDulcesRecolectados) {
+		this.cantDulcesRecolectados = cantDulcesRecolectados;
+	}
+
+	public int getCeldasVisitadas() {
+        return celdasVisitadas;
+    }
+	public int getVidasRestantes() {
+		return vidasRestantes;
+	}
+    
+    
     public int[][] getMapa() {
         return mapa;
     }
@@ -276,9 +309,5 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
     	return false;
     }
 
-	public double getCeldasVisitadas() {
-		// TODO Auto-generated method stub
-		return celdasVisitadas;
-	}
-
+	
 }

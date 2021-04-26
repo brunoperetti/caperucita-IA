@@ -23,7 +23,7 @@ public class MoverseAbajo extends SearchAction {
         
         //agregar precond
         
-        while (caperucitaState.getPosicionMapa(fil+i,col)!=CaperucitaPerception.ARBOL_PERCEPTION) {
+        while (caperucitaState.getPosicionMapa(fil+i,col)!=CaperucitaPerception.ARBOL_PERCEPTION && ((fil+i)<8)) {
         	//mientras la celda de arriba no sea arbol
         	caperucitaState.setPosicionFila(fil+i);
         	i++;
@@ -56,7 +56,7 @@ public class MoverseAbajo extends SearchAction {
 		int i=1;
 		boolean flag = false;
 		
-		while (environmentState.getPosicionMapaCaperucita(fil+i,col)!=CaperucitaPerception.ARBOL_PERCEPTION) {
+		while (environmentState.getPosicionMapaCaperucita(fil+i,col)!=CaperucitaPerception.ARBOL_PERCEPTION && ((fil+i)<9)) {
         	//mientras la celda de arriba no sea arbol
 			environmentState.setPosicionFilaCaperucita(fil+i);
         	caperucitaAgentState.setPosicionFila(fil+i); //esto No sabemos si va, porque ya está en el otro execute.

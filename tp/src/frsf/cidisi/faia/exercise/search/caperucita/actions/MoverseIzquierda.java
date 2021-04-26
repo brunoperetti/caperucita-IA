@@ -21,7 +21,7 @@ public class MoverseIzquierda extends SearchAction {
         int j=1;
         boolean flag= false;
         
-        while (caperucitaState.getPosicionMapa(fil,col-j)!=CaperucitaPerception.ARBOL_PERCEPTION) {
+        while (caperucitaState.getPosicionMapa(fil,col-j)!=CaperucitaPerception.ARBOL_PERCEPTION && ((col-j)>0)) {
         	//mientras la celda de arriba no sea arbol
         	caperucitaState.setPosicionColumna(col-j);
         	j++;
@@ -50,7 +50,7 @@ public class MoverseIzquierda extends SearchAction {
 		int i=1;
 		boolean flag = false;
 		
-		while (environmentState.getPosicionMapaCaperucita(fil,col-i)!=CaperucitaPerception.ARBOL_PERCEPTION) {
+		while (environmentState.getPosicionMapaCaperucita(fil,col-i)!=CaperucitaPerception.ARBOL_PERCEPTION && ((col-i)>= 0)) {
         	//mientras la celda de arriba no sea arbol
 			environmentState.setPosicionColumnaCaperucita(col-i);
         	caperucitaAgentState.setPosicionColumna(col-i); //esto No sabemos si va, porque ya está en el otro execute.
