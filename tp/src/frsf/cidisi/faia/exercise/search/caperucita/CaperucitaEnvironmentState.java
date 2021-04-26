@@ -13,6 +13,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
     private int[] posicionLobo;
     private int[] posicionFlores;
     private int[] posicionArboles;
+    private int vidasAgente;
 	
     public CaperucitaEnvironmentState() {
     	mapa = new int[9][14];
@@ -20,9 +21,11 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
     }
     
     
+
 	@Override
 	public void initState() {
 		
+		vidasAgente = 3;
 		// Primero llenamos todas las casillas como vacio, y despues reemplazamos algunas posiciones con otras percepciones.
         for (int fil = 0; fil < mapa.length; fil++) {
             for (int col = 0; col < mapa[0].length; col++) {
@@ -563,6 +566,15 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 	
 	public void setPosicionAgente(int[] posicionAgente) {
         this.posicionCaperucita = posicionAgente;
+	}
+	
+	public int getVidasAgente() {
+		return vidasAgente;
+	}
+
+
+	public void setVidasAgente(int vidasAgente) {
+		this.vidasAgente = vidasAgente;
 	}
 	
 	

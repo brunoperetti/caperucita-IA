@@ -93,7 +93,7 @@ public class CaperucitaAgent extends SearchBasedAgent{
             selectedAction =
                     this.getSolver().solve(new Object[]{this.getProblem()});
         } catch (Exception ex) {
-           // Logger.getLogger(CaperucitaAgent.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CaperucitaAgent.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         // Return the selected action

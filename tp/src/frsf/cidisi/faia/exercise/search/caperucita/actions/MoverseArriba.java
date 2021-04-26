@@ -38,8 +38,7 @@ public class MoverseArriba extends SearchAction {
 
 	@Override
 	public Double getCost() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Double(0);
 	}
 
 	@Override
@@ -75,9 +74,8 @@ public class MoverseArriba extends SearchAction {
 	}
 
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String toString() {
+        return "MoverseArriba";
+    }
 
 }

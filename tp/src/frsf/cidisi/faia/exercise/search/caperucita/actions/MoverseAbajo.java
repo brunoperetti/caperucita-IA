@@ -40,8 +40,7 @@ public class MoverseAbajo extends SearchAction {
 
 	@Override
 	public Double getCost() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Double(0);
 	}
 
 	@Override
@@ -57,10 +56,10 @@ public class MoverseAbajo extends SearchAction {
 		int i=1;
 		boolean flag = false;
 		
-		while (environmentState.getPosicionMapaCaperucita(fil-i,col)!=CaperucitaPerception.ARBOL_PERCEPTION) {
+		while (environmentState.getPosicionMapaCaperucita(fil+i,col)!=CaperucitaPerception.ARBOL_PERCEPTION) {
         	//mientras la celda de arriba no sea arbol
-			environmentState.setPosicionFilaCaperucita(fil-i);
-        	caperucitaAgentState.setPosicionFila(fil-i); //esto No sabemos si va, porque ya está en el otro execute.
+			environmentState.setPosicionFilaCaperucita(fil+i);
+        	caperucitaAgentState.setPosicionFila(fil+i); //esto No sabemos si va, porque ya está en el otro execute.
 
         	i++;
         	flag=true;
@@ -78,9 +77,8 @@ public class MoverseAbajo extends SearchAction {
 	}
 
 	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public String toString() {
+        return "MoverseAbajo";
+    }
 
 }

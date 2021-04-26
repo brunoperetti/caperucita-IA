@@ -12,6 +12,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
     private int cantDulcesRecolectados;
     private int vidasRestantes;
 	private int[][] mapa;
+	private int celdasVisitadas;
 
 	
 	
@@ -129,8 +130,6 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 			mapa[fil][j] = caperucitaPerception.getSensorIzquierda()[posIzq];
 			posIzq++;
 		}
-		
-		
 		
 		
 		
@@ -276,5 +275,10 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
     	}
     	return false;
     }
+
+	public double getCeldasVisitadas() {
+		// TODO Auto-generated method stub
+		return celdasVisitadas;
+	}
 
 }

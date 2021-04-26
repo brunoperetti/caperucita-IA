@@ -1,5 +1,6 @@
 package frsf.cidisi.faia.exercise.search.caperucita;
 
+import frsf.cidisi.faia.agent.Action;
 import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.environment.Environment;
 
@@ -16,6 +17,22 @@ public class CaperucitaEnvironment extends Environment {
         return (CaperucitaEnvironmentState) super.getEnvironmentState();
     }
 
+	
+	@Override
+    public boolean agentFailed(Action actionReturned) {
+
+        CaperucitaEnvironmentState caperucitaEnvironmentState =
+                this.getEnvironmentState();
+
+        int vidas = caperucitaEnvironmentState.getVidasAgente();
+
+        // FIXME: The pacman agent always has the same energy
+        // If the agent has no energy, he failed
+        if (vidas <= 0)
+            return true;
+
+        return false;
+    }
 	
 	@Override
 	public Perception getPercept() {
