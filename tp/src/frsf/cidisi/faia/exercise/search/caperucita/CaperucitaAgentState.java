@@ -194,11 +194,10 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 		//Se setean las flores
 		mapa[7][7] = CaperucitaPerception.FLORES_PERCEPTION;
         mapa[8][7] = CaperucitaPerception.FLORES_PERCEPTION;
-        
-        
+             
 		
         this.setPosicionFila(5);
-        this.setPosicionColumna(11);
+        this.setPosicionColumna(8);
 
         this.setDulcesRecolectados(0);
         this.setVidasRestantes(3);

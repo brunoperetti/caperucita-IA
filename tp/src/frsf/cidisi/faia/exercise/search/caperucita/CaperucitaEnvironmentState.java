@@ -3,6 +3,7 @@ package frsf.cidisi.faia.exercise.search.caperucita;
 import java.util.ArrayList;
 import java.util.Random;
 
+import frsf.cidisi.faia.exercise.search.caperucita.GUI.Mapa;
 import frsf.cidisi.faia.state.EnvironmentState;
 
 public class CaperucitaEnvironmentState extends EnvironmentState {
@@ -140,7 +141,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
         
         
         //CAPERUCITA
-        this.setPosicionAgente(new int[]{5, 11});
+        this.setPosicionAgente(new int[]{5, 8});
 		
 	}
 	
@@ -536,7 +537,15 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
         }
         str = str + " ]";
 
+        //MANDO la matriz a la interfaz gráfica.
+        Mapa.dibujarMapa(mapa, posicionCaperucita);
+        
         return str;
+        
+        
+        
+        
+        
 	}
 	
 	public int[] getPosicionCaperucita() {
