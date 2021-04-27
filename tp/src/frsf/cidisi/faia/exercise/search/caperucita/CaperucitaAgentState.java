@@ -18,14 +18,17 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 
 	
 	
-	public CaperucitaAgentState(int[][] m, int fil, int col, int dulces, int vidas) {
+	public CaperucitaAgentState(int[][] m, int filAct, int colAct, int filIni, int colIni, int dulces, int vidas, int celdas) {
         mapa = m;
-        posicionActual = new int[] {fil, col};
+        posicionActual = new int[2];
+        posicionActual[0] = filAct;
+        posicionActual[1] = colAct;
         posicionInicial = new int[2];
-        posicionInicial[0] = fil;
-        posicionInicial[1] = col;
+        posicionInicial[0] = filIni;
+        posicionInicial[1] = colIni;
         cantDulcesRecolectados = dulces;
         vidasRestantes = vidas;
+        celdasVisitadas = celdas;
     }
 	
 	public CaperucitaAgentState() { //constructor
@@ -45,6 +48,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 
         int[][] mapaObj = ((CaperucitaAgentState) obj).getMapa();
         int[] positionObj = ((CaperucitaAgentState) obj).getPosicionActual();
+        int[] positionIniObj = ((CaperucitaAgentState) obj).getPosicionInicial();
         int dulcesObj =  ((CaperucitaAgentState) obj).getCantDulcesRecolectados();
         int vidasObj = ((CaperucitaAgentState) obj).getVidasRestantes();
         int celdasObj =  ((CaperucitaAgentState) obj).getCeldasVisitadas();
@@ -58,6 +62,10 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
         }
 
         if (posicionActual[0] != positionObj[0] || posicionActual[1] != positionObj[1]) {
+            return false;
+        }
+        
+        if (posicionInicial[0] != positionIniObj[0] || posicionInicial[1] != positionIniObj[1]) {
             return false;
         }
         
@@ -88,12 +96,17 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
             }
         }
 
-        int[] nuevaPosicion = new int[2];
-        nuevaPosicion[0] = posicionActual[0];
-        nuevaPosicion[1] = posicionActual[1];
+        int[] nuevaPosicionActual = new int[2];
+        nuevaPosicionActual[0] = posicionActual[0];
+        nuevaPosicionActual[1] = posicionActual[1];
+        
+        int[] nuevaPosicionInicial = new int[2];
+        nuevaPosicionInicial[0] = posicionInicial[0];
+        nuevaPosicionInicial[1] = posicionInicial[1];
 
         CaperucitaAgentState nuevoEstado = new CaperucitaAgentState(nuevoMapa,
-                this.getPosicionFila(), this.getPosicionColumna(), this.cantDulcesRecolectados, this.vidasRestantes);
+        		nuevaPosicionActual[0], nuevaPosicionActual[1], nuevaPosicionInicial[0], nuevaPosicionInicial[1],
+        		this.cantDulcesRecolectados, this.vidasRestantes, this.celdasVisitadas);
 
         return nuevoEstado;
 	}
@@ -254,6 +267,10 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
     
     public int [] getPosicionActual () {
     	return posicionActual;
+    }
+    
+    public int[] getPosicionInicial () {
+    	return posicionInicial;
     }
     
     public void setPosicionMapa(int fil, int col, int value) {

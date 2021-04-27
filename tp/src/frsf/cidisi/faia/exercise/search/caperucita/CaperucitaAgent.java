@@ -15,8 +15,11 @@ import frsf.cidisi.faia.exercise.search.caperucita.actions.MoverseDerecha;
 import frsf.cidisi.faia.exercise.search.caperucita.actions.MoverseIzquierda;
 import frsf.cidisi.faia.exercise.search.caperucita.actions.ReiniciarPartida;
 import frsf.cidisi.faia.exercise.search.caperucita.actions.TomarDulce;
+import frsf.cidisi.faia.solver.search.BreathFirstSearch;
 import frsf.cidisi.faia.solver.search.DepthFirstSearch;
+import frsf.cidisi.faia.solver.search.IStepCostFunction;
 import frsf.cidisi.faia.solver.search.Search;
+import frsf.cidisi.faia.solver.search.UniformCostSearch;
 
 public class CaperucitaAgent extends SearchBasedAgent{
 	
@@ -52,8 +55,12 @@ public class CaperucitaAgent extends SearchBasedAgent{
 	@Override
 	public Action selectAction() {
 		// Create the search strategy
-        DepthFirstSearch strategy = new DepthFirstSearch();
+		DepthFirstSearch strategy = new DepthFirstSearch();
 
+		
+	         /*IStepCostFunction costFunction = new CostFunction();
+	         UniformCostSearch strategy = new UniformCostSearch(costFunction);*/
+		
         /**
          * Another search strategy examples:
          * 
