@@ -24,6 +24,7 @@ public class MoverseIzquierda extends SearchAction {
         while (caperucitaState.getPosicionMapa(fil,col-j)!=CaperucitaPerception.ARBOL_PERCEPTION && ((col-j)>0)) {
         	//mientras la celda de arriba no sea arbol
         	caperucitaState.setPosicionColumna(col-j);
+        	caperucitaState.sumarCeldaVisitada();
         	j++;
         	flag=true;
         }

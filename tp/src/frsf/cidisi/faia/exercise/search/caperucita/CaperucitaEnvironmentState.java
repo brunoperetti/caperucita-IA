@@ -143,7 +143,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
         posicionLobo[1]=4;
         
         //CAPERUCITA
-        this.setPosicionAgente(new int[]{5, 8});
+        this.setPosicionAgente(new int[]{5, 11});
 		
 	}
 	

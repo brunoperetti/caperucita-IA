@@ -208,12 +208,13 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 		mapa[7][7] = CaperucitaPerception.FLORES_PERCEPTION;
         mapa[8][7] = CaperucitaPerception.FLORES_PERCEPTION;
              
-		
+		this.setCeldasVisitadas(0);
         this.setPosicionFila(5);
-        this.setPosicionColumna(8);
+        this.setPosicionColumna(11);
 
         this.setDulcesRecolectados(0);
         this.setVidasRestantes(3);
+        
 		
 	}
 	
@@ -254,6 +255,14 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
     }
 	public int getVidasRestantes() {
 		return vidasRestantes;
+	}
+	
+	   public void setCeldasVisitadas (int value) {
+	    	this.celdasVisitadas = value;
+	    }
+	
+	public void sumarCeldaVisitada() {
+		celdasVisitadas = celdasVisitadas+1;
 	}
     
     

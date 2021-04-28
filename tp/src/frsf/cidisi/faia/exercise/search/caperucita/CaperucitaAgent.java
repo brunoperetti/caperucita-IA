@@ -38,8 +38,8 @@ public class CaperucitaAgent extends SearchBasedAgent{
         operators.addElement(new MoverseAbajo());
         operators.addElement(new MoverseDerecha());
         operators.addElement(new MoverseIzquierda());
-        operators.addElement(new ReiniciarPartida());
-        operators.addElement(new TomarDulce());
+        /*operators.addElement(new ReiniciarPartida());
+        operators.addElement(new TomarDulce());*/
 
 
         // Crear el problema que va a resolver caperucita
@@ -58,8 +58,8 @@ public class CaperucitaAgent extends SearchBasedAgent{
 		DepthFirstSearch strategy = new DepthFirstSearch();
 
 		
-	         /*IStepCostFunction costFunction = new CostFunction();
-	         UniformCostSearch strategy = new UniformCostSearch(costFunction);*/
+	         //IStepCostFunction costFunction = new CostFunction();
+	         //UniformCostSearch strategy = new UniformCostSearch(costFunction);
 		
         /**
          * Another search strategy examples:
