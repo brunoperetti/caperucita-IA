@@ -143,7 +143,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
         posicionLobo[1]=4;
         
         //CAPERUCITA
-        this.setPosicionAgente(new int[]{5, 11});
+        this.setPosicionAgente(new int[]{5, 8});
 		
 	}
 	
@@ -255,7 +255,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 	        mapa[6][4] = CaperucitaPerception.LOBO_PERCEPTION; //Posicion inicial del lobo la seteamos? luego random
 	        
 	        //CAPERUCITA
-	        this.setPosicionAgente(new int[]{5, 11});
+	        this.setPosicionAgente(new int[]{5, 8});
 			
 			
 			
@@ -514,7 +514,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 	        mapa[7][6] = CaperucitaPerception.LOBO_PERCEPTION; //Posicion inicial del lobo la seteamos? luego random
 	        
 	        //CAPERUCITA
-	        this.setPosicionAgente(new int[] {5,11 });//cambiar desp
+	        //this.setPosicionAgente(new int[] {7,8 });//cambiar desp
 				
 			
 					

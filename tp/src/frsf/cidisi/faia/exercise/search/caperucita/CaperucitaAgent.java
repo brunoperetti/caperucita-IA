@@ -54,13 +54,15 @@ public class CaperucitaAgent extends SearchBasedAgent{
 
 	@Override
 	public Action selectAction() {
-		// Create the search strategy
+		//Create the search strategy
 		DepthFirstSearch strategy = new DepthFirstSearch();
 
 		
-	         //IStepCostFunction costFunction = new CostFunction();
-	         //UniformCostSearch strategy = new UniformCostSearch(costFunction);
+	       //IStepCostFunction costFunction = new CostFunction();
+	       //UniformCostSearch strategy = new UniformCostSearch(costFunction);
 		
+	         
+	       //  BreathFirstSearch strategy = new BreathFirstSearch();
         /**
          * Another search strategy examples:
          * 

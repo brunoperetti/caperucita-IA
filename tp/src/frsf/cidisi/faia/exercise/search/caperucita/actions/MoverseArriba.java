@@ -39,7 +39,7 @@ public class MoverseArriba extends SearchAction {
 
 	@Override
 	public Double getCost() {
-		return new Double(0);
+		return new Double(1);
 	}
 
 	@Override
@@ -58,6 +58,7 @@ public class MoverseArriba extends SearchAction {
 		while (environmentState.getPosicionMapaCaperucita(fil-i,col)!=CaperucitaPerception.ARBOL_PERCEPTION && ((fil-i)>=0)) {
         	//mientras la celda de arriba no sea arbol
 			environmentState.setPosicionFilaCaperucita(fil-i);
+			caperucitaAgentState.sumarCeldaVisitada();
         	caperucitaAgentState.setPosicionFila(fil-i); //esto No sabemos si va, porque ya está en el otro execute.
 
         	i++;

@@ -10,9 +10,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 	private int[] posicionActual;
 	private int[] posicionInicial;
     private int cantDulcesRecolectados;
-   
-
-	private int vidasRestantes;
+   	private int vidasRestantes;
 	private int[][] mapa;
 	private int celdasVisitadas;
 
@@ -28,7 +26,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
         posicionInicial[1] = colIni;
         cantDulcesRecolectados = dulces;
         vidasRestantes = vidas;
-        celdasVisitadas = celdas;
+        celdasVisitadas =0;
     }
 	
 	public CaperucitaAgentState() { //constructor
@@ -46,40 +44,40 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 		if (!(obj instanceof CaperucitaAgentState))
             return false;
 
-        int[][] mapaObj = ((CaperucitaAgentState) obj).getMapa();
+        //int[][] mapaObj = ((CaperucitaAgentState) obj).getMapa();
         int[] positionObj = ((CaperucitaAgentState) obj).getPosicionActual();
         int[] positionIniObj = ((CaperucitaAgentState) obj).getPosicionInicial();
-        int dulcesObj =  ((CaperucitaAgentState) obj).getCantDulcesRecolectados();
+        //int dulcesObj =  ((CaperucitaAgentState) obj).getCantDulcesRecolectados();
         int vidasObj = ((CaperucitaAgentState) obj).getVidasRestantes();
-        int celdasObj =  ((CaperucitaAgentState) obj).getCeldasVisitadas();
+      //  int celdasObj =  ((CaperucitaAgentState) obj).getCeldasVisitadas();
 
-        for (int row = 0; row < mapa.length; row++) {
+       /*for (int row = 0; row < mapa.length; row++) {
             for (int col = 0; col < mapa[0].length; col++) {
                 if (mapa[row][col] != mapaObj[row][col]) {
                     return false;
                 }
             }
-        }
+        }*/
 
-        if (posicionActual[0] != positionObj[0] || posicionActual[1] != positionObj[1]) {
+        if (this.getPosicionActual()[0] != positionObj[0] || this.getPosicionActual()[1] != positionObj[1]) {
             return false;
         }
         
-        if (posicionInicial[0] != positionIniObj[0] || posicionInicial[1] != positionIniObj[1]) {
+       /* if (posicionInicial[0] != positionIniObj[0] || posicionInicial[1] != positionIniObj[1]) {
+            return false;
+        }*/
+        
+       /* if (cantDulcesRecolectados != dulcesObj ) {
+            return false;
+        }*/
+        
+        if (this.getVidasRestantes() != vidasObj ) {
             return false;
         }
         
-        if (cantDulcesRecolectados != dulcesObj ) {
-            return false;
-        }
-        
-        if (vidasRestantes != vidasObj ) {
-            return false;
-        }
-        
-        if (celdasVisitadas != celdasObj) {
+       /* if (celdasVisitadas != celdasObj) {
         	return false;
-        }
+        }*/
                 
         return true;
 		
@@ -209,8 +207,10 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
         mapa[8][7] = CaperucitaPerception.FLORES_PERCEPTION;
              
 		this.setCeldasVisitadas(0);
+        this.setPosicionInicialFila(5);
+        this.setPosicionInicialColumna(8);
         this.setPosicionFila(5);
-        this.setPosicionColumna(11);
+        this.setPosicionColumna(8);
 
         this.setDulcesRecolectados(0);
         this.setVidasRestantes(3);
@@ -233,6 +233,15 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
     public void setPosicionColumna(int value) {
     	this.posicionActual[1] = value;
     }
+    
+    public void setPosicionInicialFila(int value) {
+    	this.posicionInicial[0] = value;
+    }
+    
+    public void setPosicionInicialColumna(int value) {
+    	this.posicionInicial[1] = value;
+    }
+    
     
     public void setDulcesRecolectados (int value) {
     	this.cantDulcesRecolectados = value;
