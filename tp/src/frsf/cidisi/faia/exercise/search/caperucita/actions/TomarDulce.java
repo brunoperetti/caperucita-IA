@@ -49,10 +49,12 @@ public class TomarDulce extends SearchAction {
         if (environmentState.getMapa()[fil][col] == CaperucitaPerception.DULCE_PERCEPTION) {
             // Actualizar mapa del ambiente.
             environmentState.setPosicionMapa(fil, col, CaperucitaPerception.VACIO_PERCEPTION);
+            environmentState.sumarDulceRecolectado();
 
             // Activalizar estado del agente. ¿¿POR QUE?? ¿no lo hace el otro execute??
      /*????*/  caperucitaState.setPosicionMapa(fil, col, CaperucitaPerception.VACIO_PERCEPTION);//???????
-            
+     			
+     
             return environmentState;
         }
 
@@ -61,8 +63,7 @@ public class TomarDulce extends SearchAction {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "TomarDulce";
 	}
 
 }

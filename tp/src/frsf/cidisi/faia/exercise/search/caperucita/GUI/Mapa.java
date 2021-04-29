@@ -18,12 +18,12 @@ public class Mapa {
 		private static int[][] mapa = new int[9][14];
 		private static int [] posicionAgente = new int [2];
 		static int vidas;
-		int dulces;
+		static int dulces;
 		
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public static void dibujarMapa (int[][]matriz, int[] posCaperucita, int vidasAgente) {
+	public static void dibujarMapa (int[][]matriz, int[] posCaperucita, int vidasAgente, int dulcesAgente) {
 			
 		mapa = setMatriz(matriz, posCaperucita, mapa);
 		
@@ -31,6 +31,7 @@ public class Mapa {
 		posicionAgente[0]=posCaperucita[0];
 		posicionAgente[1]=posCaperucita[1];
 		vidas = vidasAgente;
+		dulces = dulcesAgente;
 		
         //la aplano
         int []matrizAplanada = aplanar(mapa);
@@ -69,7 +70,7 @@ public class Mapa {
 		labelTitulo.setText("CAPERUCITA - IA");
 		labelPosicion.setText("Posición agente: ("+posicionAgente[0]+", "+posicionAgente[1]+") --");
 		labelVidas.setText("Vidas restantes: "+ vidas +" --");
-		labelDulces.setText("Dulces recolectados: ");
+		labelDulces.setText("Dulces recolectados: "+ dulces);
 		FlowLayout fl_panelInfo = new FlowLayout(FlowLayout.CENTER, 5, 5);
 		panelInfo.setLayout(fl_panelInfo);
 		panelTitulo.setLayout(null);

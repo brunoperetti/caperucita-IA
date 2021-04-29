@@ -11,7 +11,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 
 	// :::: VARIABLES DE INIT STATE DEL AMBIENTE
 		public static final int POS_INI_FILA=1;
-		public static final int POS_INI_COL=8;
+		public static final int POS_INI_COL=3;
 	
 	
 	private int[][] mapa;
@@ -21,6 +21,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
     private int[] posicionFlores;
     private int[] posicionArboles;
     private int vidasAgente;
+    private int dulcesAgente;
 	
     public CaperucitaEnvironmentState() {
     	mapa = new int[9][14];
@@ -548,7 +549,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
         str = str + " ]";
 
         //MANDO la matriz a la interfaz gráfica.
-        Mapa.dibujarMapa(mapa, posicionCaperucita, vidasAgente);
+        Mapa.dibujarMapa(mapa, posicionCaperucita, vidasAgente, dulcesAgente);
         
         return str;
         
@@ -712,6 +713,13 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 
 	public void restarVidaAgente() {
 		this.vidasAgente=this.vidasAgente-1;
+		
+	}
+
+
+
+	public void sumarDulceRecolectado() {
+		this.dulcesAgente = dulcesAgente+1;
 		
 	}
 	

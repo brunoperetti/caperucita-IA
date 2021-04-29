@@ -32,6 +32,12 @@ public class MoverseArriba extends SearchAction {
         	if(caperucitaState.getMapa()[fil][col] == CaperucitaPerception.LOBO_PERCEPTION) {
         		caperucitaState.restarVida();
         	}
+        	
+        	if(caperucitaState.getMapa()[fil][col] == CaperucitaPerception.DULCE_PERCEPTION) {
+        		caperucitaState.sumarDulceRecolectado();
+        		caperucitaState.getMapa()[fil][col] = CaperucitaPerception.VACIO_PERCEPTION;        		
+        	}
+        	
         }
 
         if (flag==true) {
@@ -70,6 +76,11 @@ public class MoverseArriba extends SearchAction {
         	
         	if(environmentState.getMapa()[fil][col] == CaperucitaPerception.LOBO_PERCEPTION) {
         		environmentState.restarVidaAgente();
+        	}
+        	
+           	if(environmentState.getMapa()[fil][col] == CaperucitaPerception.DULCE_PERCEPTION) {
+        		environmentState.sumarDulceRecolectado();
+        		environmentState.getMapa()[fil][col] = CaperucitaPerception.VACIO_PERCEPTION;        		
         	}
         }
 

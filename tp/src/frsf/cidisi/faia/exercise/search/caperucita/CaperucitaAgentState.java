@@ -9,7 +9,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 
 	// :::: VARIABLES DE INIT STATE DEL AGENTE
 	public static final int POS_INI_FILA=1;
-	public static final int POS_INI_COL=8;
+	public static final int POS_INI_COL=3;
 		
 	
 	private int[] posicionActual;
@@ -229,9 +229,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
                 mapa[fil][col] = CaperucitaPerception.FLORES_PERCEPTION;
             }
         }
-
-
-             
+   
 		this.setCeldasVisitadas(0);
         this.setPosicionInicialFila(POS_INI_FILA);
         this.setPosicionInicialColumna(POS_INI_COL);
@@ -340,7 +338,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 		else return false;
     	
     }
-    
+       
     public boolean hayLoboEnPosicion (int fil, int col) {
 		if (mapa[fil][col]==CaperucitaPerception.LOBO_PERCEPTION) {
 			return true;
@@ -348,6 +346,8 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 		else return false;
     	
     }
+    
+    
     
     public boolean tieneVidas () {
 		if (vidasRestantes > 1) {

@@ -34,12 +34,13 @@ public class CaperucitaAgent extends SearchBasedAgent{
 
         // Creación de operadores
         Vector<SearchAction> operators = new Vector<SearchAction>();
+        
+        operators.addElement(new TomarDulce());
         operators.addElement(new MoverseArriba());
         operators.addElement(new MoverseAbajo());
         operators.addElement(new MoverseDerecha());
         operators.addElement(new MoverseIzquierda());
-        /*operators.addElement(new ReiniciarPartida());
-        operators.addElement(new TomarDulce());*/
+        
 
 
         // Crear el problema que va a resolver caperucita
@@ -62,7 +63,7 @@ public class CaperucitaAgent extends SearchBasedAgent{
 	       //UniformCostSearch strategy = new UniformCostSearch(costFunction);
 		
 	         
-	         BreathFirstSearch strategy = new BreathFirstSearch();
+	        BreathFirstSearch strategy = new BreathFirstSearch();
         /**
          * Another search strategy examples:
          * 
