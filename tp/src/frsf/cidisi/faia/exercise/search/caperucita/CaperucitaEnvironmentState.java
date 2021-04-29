@@ -1,6 +1,7 @@
 package frsf.cidisi.faia.exercise.search.caperucita;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 import frsf.cidisi.faia.exercise.search.caperucita.GUI.Mapa;
@@ -8,16 +9,23 @@ import frsf.cidisi.faia.state.EnvironmentState;
 
 public class CaperucitaEnvironmentState extends EnvironmentState {
 
+	// :::: VARIABLES DE INIT STATE DEL AMBIENTE
+		public static final int POS_INI_FILA=1;
+		public static final int POS_INI_COL=8;
+	
+	
 	private int[][] mapa;
     private int[] posicionCaperucita;
     private int[] posicionDulces;
-    private int[] posicionLobo = new int[2];
+    private int[] posicionLobo;
     private int[] posicionFlores;
     private int[] posicionArboles;
     private int vidasAgente;
 	
     public CaperucitaEnvironmentState() {
     	mapa = new int[9][14];
+    	posicionCaperucita= new int[2];
+    	posicionLobo = new int[2];
         this.initState();
     }
     
@@ -137,13 +145,13 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
         mapa[1][2] = CaperucitaPerception.ARBOL_PERCEPTION;
 
         //LOBO
-        mapa[6][4] = CaperucitaPerception.LOBO_PERCEPTION; //Posicion inicial del lobo la seteamos? luego random
+        //mapa[6][4] = CaperucitaPerception.LOBO_PERCEPTION; //Posicion inicial del lobo la seteamos? luego random
         
-        posicionLobo[0]=6;
-        posicionLobo[1]=4;
+        this.setPosicionLobo(new int[] {6,4}); //Posicion inicial
+       
         
         //CAPERUCITA
-        this.setPosicionAgente(new int[]{5, 8});
+        this.setPosicionAgente(new int[]{POS_INI_FILA, POS_INI_COL});
 		
 	}
 	
@@ -579,6 +587,11 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
         this.posicionCaperucita = posicionAgente;
 	}
 	
+	public void setPosicionLobo(int[] posLobo) {
+        this.posicionLobo = posLobo;
+        mapa[posLobo[0]][posLobo[1]] = CaperucitaPerception.LOBO_PERCEPTION;
+	}
+	
 	public int getVidasAgente() {
 		return vidasAgente;
 	}
@@ -596,35 +609,25 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 	}
 	
 	
-	
-	
 	public void moverLobo() {
-		/*ArrayList <Integer> aux = new ArrayList <Integer>();
-		ArrayList<ArrayList<Integer>> posiblesLugaresAMoverse = new ArrayList<ArrayList<Integer>>();
-		ArrayList <Integer> nuevaPosicion = new ArrayList <Integer>();
 		
-		for (int i=0; i<9;i++) {
-			for (int j=0; j<14; j++) {
-				if(mapa[i][j]==CaperucitaPerception.VACIO_PERCEPTION) {
-					aux.add(i);
-					aux.add(j);
-					posiblesLugaresAMoverse.add(aux);
-				}
-					
-			}
-			
-		}
-		
-		nuevaPosicion = this.getRandomItem(posiblesLugaresAMoverse);
-		int fil = nuevaPosicion.get(0);
-		int col = nuevaPosicion.get(1);
-
 		mapa[posicionLobo[0]][posicionLobo[1]]=CaperucitaPerception.VACIO_PERCEPTION; //Se actualiza valor anterior del lobo
+		
+		int filaRandom = (int)(Math.random()*8+1);
+		int colRandom = (int)(Math.random()*13+1);
+		
+		while (! (mapa[filaRandom][colRandom]==CaperucitaPerception.VACIO_PERCEPTION && 
+						      (posicionCaperucita[0]!=filaRandom && posicionCaperucita[1]!=colRandom) )) {
+			 
+			filaRandom = (int)(Math.random()*8+1);
+			 colRandom = (int)(Math.random()*13+1);
+		}
 	
-		mapa[fil][col] = CaperucitaPerception.LOBO_PERCEPTION;  // se setea posicion nueva*/
+		posicionLobo[0]= filaRandom;
+		posicionLobo[1]= colRandom;
 		
-		mapa[6][4] = CaperucitaPerception.LOBO_PERCEPTION;
-		
+		setPosicionLobo(posicionLobo); //setea vector y pos del mapa.
+			
 	}
 
 
@@ -703,6 +706,13 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 		
 		//Retorna los valores de las celdas de arriba de la posicion pasada como parametro. 
 		//La posicion 0 del arrayValoresArriba representa el valor de la posicion mas cernana hacia arriba
+	}
+
+
+
+	public void restarVidaAgente() {
+		this.vidasAgente=this.vidasAgente-1;
+		
 	}
 	
 }

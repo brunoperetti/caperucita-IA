@@ -49,20 +49,20 @@ public class CaperucitaAgent extends SearchBasedAgent{
 
 	@Override
 	public void see(Perception p) {
-		this.getAgentState().updateState(p);		
+		this.getAgentState().updateState(p);
 	}
 
 	@Override
 	public Action selectAction() {
 		//Create the search strategy
-		DepthFirstSearch strategy = new DepthFirstSearch();
+			//DepthFirstSearch strategy = new DepthFirstSearch();
 
 		
 	       //IStepCostFunction costFunction = new CostFunction();
 	       //UniformCostSearch strategy = new UniformCostSearch(costFunction);
 		
 	         
-	       //  BreathFirstSearch strategy = new BreathFirstSearch();
+	         BreathFirstSearch strategy = new BreathFirstSearch();
         /**
          * Another search strategy examples:
          * 
@@ -104,9 +104,15 @@ public class CaperucitaAgent extends SearchBasedAgent{
         } catch (Exception ex) {
             Logger.getLogger(CaperucitaAgent.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
         // Return the selected action
         return selectedAction;
+        
+        
 	}
+	
+	
+		
+	    
 
 }

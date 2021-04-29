@@ -26,8 +26,10 @@ public class CaperucitaPerception extends Perception {
     
     public CaperucitaPerception() {
     	
+    	/*
+    	
     	//inicializamos las percepciones
-    	/*for (int i = 0; i < detectarArriba.length; i++) {
+    	for (int i = 0; i < detectarArriba.length; i++) {
     		detectarArriba[i] = DESCONOCIDO_PERCEPTION;
     	}
     	
@@ -43,6 +45,7 @@ public class CaperucitaPerception extends Perception {
     		detectarIzquierda[i] = DESCONOCIDO_PERCEPTION;
     	}
     	*/
+    	
     }
     
     public CaperucitaPerception(Agent agent, Environment environment) {
@@ -63,30 +66,16 @@ public class CaperucitaPerception extends Perception {
         int col = environmentState.getPosicionCaperucita()[1];
 
         
-      // ---- MOVIMIENTO DEL LOBO 
-      		int i=1;
-      		boolean flag = false;
-      		
-      		while (environmentState.getPosicionMapaCaperucita(fil-i,col)!=CaperucitaPerception.ARBOL_PERCEPTION) {
-              	//mientras la celda de arriba no sea arbol
-      			environmentState.setPosicionFilaCaperucita(fil-i);
-              	//caperucitaAgentState.setPosicionFila(fil-i); //esto No sabemos si va, porque ya está en el otro execute.
-
-              	i++;
-              	flag=true;
-              }
-
-              if (flag=true) {
-              	environmentState.moverLobo();
-              }
-        // -- TERMINA MOVIMIENTO DEL LOBO
+        // :::: MOVIMIENTO DEL LOBO
+       //environmentState.moverLobo();
         
         //EL AGENTE PERCIBE::
         this.setSensorArriba(caperucitaEnvironment.getCeldasArriba(fil, col));
         this.setSensorIzquierda(caperucitaEnvironment.getCeldasIzquierda(fil, col));
         this.setSensorDerecha(caperucitaEnvironment.getCeldasDerecha(fil, col));
         this.setSensorAbajo(caperucitaEnvironment.getCeldasAbajo(fil, col));
-                
+        
+        
     }
 	
 	

@@ -29,6 +29,11 @@ public class MoverseAbajo extends SearchAction {
         	caperucitaState.sumarCeldaVisitada();
         	i++;
         	flag=true;
+        	
+        	if(caperucitaState.getMapa()[fil][col] == CaperucitaPerception.LOBO_PERCEPTION) {
+        		caperucitaState.restarVida();
+        	}
+	
         }
 
         if (flag==true) {
@@ -65,10 +70,16 @@ public class MoverseAbajo extends SearchAction {
 
         	i++;
         	flag=true;
+        	
+        	if(environmentState.getMapa()[fil][col] == CaperucitaPerception.LOBO_PERCEPTION) {
+        		environmentState.restarVidaAgente();
+        	}
+        	
+        	
         }
 
         if (flag=true) {
-        	environmentState.moverLobo();
+        	//environmentState.moverLobo();
         	return environmentState;
         	
         	

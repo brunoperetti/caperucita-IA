@@ -169,7 +169,7 @@ public class Mapa {
 		//PARA DIBUJAR CAMINO RECORRIDO
 		for(int i=0;i<matriz.length;i++) {
 			for (int j=0; j<matriz[0].length;j++) {
-				if ((mapaAnterior[i][j] == 10) && (matriz[i][j] != 10)) 
+				if ((mapaAnterior[i][j] == 10) && (matriz[i][j] != 10) && (matriz[i][j]!=4)) 
 					mapaAux[i][j]=20;//20 significa que caperucita estuvo ahi antes.
 			}
 		}

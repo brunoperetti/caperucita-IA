@@ -42,6 +42,11 @@ public class CaperucitaEnvironment extends Environment {
         int fil = this.getEnvironmentState().getPosicionCaperucita()[0];
         int col = this.getEnvironmentState().getPosicionCaperucita()[1];
 
+        
+        // :::: MOVIMIENTO DEL LOBO
+        CaperucitaEnvironmentState environmentState = this.getEnvironmentState();
+        environmentState.moverLobo();
+        
         perception.setSensorArriba(this.getCeldasArriba(fil, col));
         perception.setSensorIzquierda(this.getCeldasIzquierda(fil, col));
         perception.setSensorDerecha(this.getCeldasDerecha(fil, col));

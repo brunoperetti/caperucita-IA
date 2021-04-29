@@ -28,6 +28,10 @@ public class MoverseIzquierda extends SearchAction {
         	//System.out.println(col-j);
         	j++;
         	flag=true;
+        	
+        	if(caperucitaState.getMapa()[fil][col] == CaperucitaPerception.LOBO_PERCEPTION) {
+        		caperucitaState.restarVida();
+        	}
         }
 
         if (flag==true) {
@@ -61,10 +65,15 @@ public class MoverseIzquierda extends SearchAction {
 
         	i++;
         	flag=true;
+        	
+        	if(environmentState.getMapa()[fil][col] == CaperucitaPerception.LOBO_PERCEPTION) {
+        		environmentState.restarVidaAgente();
+        	}
+        	
         }
 
         if (flag=true) {
-        	environmentState.moverLobo();
+        	//environmentState.moverLobo();
         	return environmentState;
         	
         }

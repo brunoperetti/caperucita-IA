@@ -9,8 +9,10 @@ public class CaperucitaGoal extends GoalTest{
 	public boolean isGoalState(AgentState agentState) {
 		
 		if ((((CaperucitaAgentState) agentState).estaEnCampoDeFlores()) && (((CaperucitaAgentState) agentState).tieneVidas())) {
-            return true;
+					    
+			return true;
         }
+		
         return false;
 
 

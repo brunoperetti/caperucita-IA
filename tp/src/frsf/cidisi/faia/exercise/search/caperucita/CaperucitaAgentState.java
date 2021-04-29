@@ -4,8 +4,13 @@ import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
 
 
+
 public class CaperucitaAgentState extends SearchBasedAgentState {
 
+	// :::: VARIABLES DE INIT STATE DEL AGENTE
+	public static final int POS_INI_FILA=1;
+	public static final int POS_INI_COL=8;
+		
 	
 	private int[] posicionActual;
 	private int[] posicionInicial;
@@ -196,21 +201,42 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 	public void initState() {		
 		//Situación inicial de caperucita
 		
+		CaperucitaEnvironmentState estadoAmbiente = new CaperucitaEnvironmentState();
+		estadoAmbiente.initState();
+		int mapaAmbiente[][];
+		mapaAmbiente=estadoAmbiente.getMapa();
+				
+		// :::::::: EL AGENTE SOLO CONOCE LA UBICACION DE LOS ÁRBOLES Y LAS FLORES.
+		
+		//PRIMERO SETEAMOS TODAS LAS CELDAS EN DESCONOCIDO.
 		for (int fil = 0; fil < mapa.length; fil++) {
             for (int col = 0; col < mapa[0].length; col++) {
                 mapa[fil][col] = CaperucitaPerception.DESCONOCIDO_PERCEPTION;
             }
         }
-		
-		//Se setean las flores
-		mapa[7][7] = CaperucitaPerception.FLORES_PERCEPTION;
-        mapa[8][7] = CaperucitaPerception.FLORES_PERCEPTION;
+		//SETEO DE LOS ÁRBOLES EN MAPA DEL AGENTE
+		for (int fil = 0; fil < mapa.length; fil++) {
+            for (int col = 0; col < mapa[0].length; col++) {
+            	if (mapaAmbiente[fil][col]==CaperucitaPerception.ARBOL_PERCEPTION)
+                mapa[fil][col] = CaperucitaPerception.ARBOL_PERCEPTION;
+            }
+        }
+
+        //SETEO DE CAMPO DE FLORES EN MAPA DEL AGENTE
+		for (int fil = 0; fil < mapa.length; fil++) {
+            for (int col = 0; col < mapa[0].length; col++) {
+            	if (mapaAmbiente[fil][col]==CaperucitaPerception.FLORES_PERCEPTION)
+                mapa[fil][col] = CaperucitaPerception.FLORES_PERCEPTION;
+            }
+        }
+
+
              
 		this.setCeldasVisitadas(0);
-        this.setPosicionInicialFila(5);
-        this.setPosicionInicialColumna(8);
-        this.setPosicionFila(5);
-        this.setPosicionColumna(8);
+        this.setPosicionInicialFila(POS_INI_FILA);
+        this.setPosicionInicialColumna(POS_INI_COL);
+        this.setPosicionFila(POS_INI_FILA);
+        this.setPosicionColumna(POS_INI_COL);
 
         this.setDulcesRecolectados(0);
         this.setVidasRestantes(3);
@@ -251,6 +277,10 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
     	this.vidasRestantes = value;
     }
     
+    public void restarVida () {
+    	this.vidasRestantes = vidasRestantes -1 ;
+    }
+    
     public int getCantDulcesRecolectados() {
 		return cantDulcesRecolectados;
 	}
@@ -277,6 +307,10 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
     
     public int[][] getMapa() {
         return mapa;
+    }
+    
+    public void setMapa(int[][] w) {
+    	this.mapa = w;
     }
     
     public int getPosicionMapa(int row, int col) {
@@ -348,6 +382,8 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
     	}
     	return false;
     }
+    
+  
 
 	
 }
