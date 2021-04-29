@@ -8,8 +8,8 @@ import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
 public class CaperucitaAgentState extends SearchBasedAgentState {
 
 	// :::: VARIABLES DE INIT STATE DEL AGENTE
-	public static final int POS_INI_FILA=1;
-	public static final int POS_INI_COL=3;
+	public static final int POS_INI_FILA=4;
+	public static final int POS_INI_COL=11;
 		
 	
 	private int[] posicionActual;

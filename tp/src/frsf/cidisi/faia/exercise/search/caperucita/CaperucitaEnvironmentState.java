@@ -10,8 +10,9 @@ import frsf.cidisi.faia.state.EnvironmentState;
 public class CaperucitaEnvironmentState extends EnvironmentState {
 
 	// :::: VARIABLES DE INIT STATE DEL AMBIENTE
-		public static final int POS_INI_FILA=1;
-		public static final int POS_INI_COL=3;
+		public static final int POS_INI_FILA=4; //pos fila inicial agente
+		public static final int POS_INI_COL=11; // pos col inicial agente
+		public static final int N_ESCENARIO =1; // Valores posibles: 1, 2, o 3 según enunciado
 	
 	
 	private int[][] mapa;
@@ -42,117 +43,8 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
                 mapa[fil][col] = CaperucitaPerception.VACIO_PERCEPTION;
             }
         }
-
-       
-        /* Seteamos otras percepciones */
         
-        // https://imgur.com/a/BtXTWP4  >>>> imagen con posiciones, representando el escenario 1 del enunciado
-        
-        //ARBOLES
-        mapa[0][0] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[0][1] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[0][2] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[0][3] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[0][4] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[0][5] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[0][6] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[0][7] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[0][8] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[0][9] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[0][10] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[0][11] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[0][12] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[0][13] = CaperucitaPerception.ARBOL_PERCEPTION;
-        
-        mapa[1][0] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[1][1] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[1][7] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[1][11] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[1][12] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[1][13] = CaperucitaPerception.ARBOL_PERCEPTION;
-        
-        mapa[2][0] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[2][1] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[2][2] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[2][4] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[2][12] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[2][13] = CaperucitaPerception.ARBOL_PERCEPTION;
-        
-        mapa[3][0] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[3][1] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[3][9] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[3][12] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[3][13] = CaperucitaPerception.ARBOL_PERCEPTION;
-        
-        mapa[4][0] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[4][1] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[4][2] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[4][3] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[4][4] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[4][8] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[4][12] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[4][13] = CaperucitaPerception.ARBOL_PERCEPTION;
-        
-        mapa[5][0] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[5][1] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[5][2] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[5][4] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[5][5] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[5][12] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[5][13] = CaperucitaPerception.ARBOL_PERCEPTION;
-        
-        mapa[6][0] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[6][1] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[6][2] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[6][5] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[6][6] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[6][7] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[6][9] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[6][11] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[6][12] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[6][13] = CaperucitaPerception.ARBOL_PERCEPTION;
-        
-        mapa[7][0] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[7][1] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[7][2] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[7][6] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[7][11] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[7][12] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[7][13] = CaperucitaPerception.ARBOL_PERCEPTION;
-        
-        mapa[8][0] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[8][1] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[8][2] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[8][3] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[8][4] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[8][5] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[8][6] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[8][8] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[8][9] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[8][10] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[8][11] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[8][12] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[8][13] = CaperucitaPerception.ARBOL_PERCEPTION;
-        
-        //DULCES 
-        mapa[1][3] = CaperucitaPerception.DULCE_PERCEPTION;
-        mapa[1][10] = CaperucitaPerception.DULCE_PERCEPTION;
-        mapa[3][8] = CaperucitaPerception.DULCE_PERCEPTION;
-
-        //CAMPO DE FLORES
-        mapa[7][7] = CaperucitaPerception.FLORES_PERCEPTION;
-        mapa[8][7] = CaperucitaPerception.FLORES_PERCEPTION;
-        mapa[0][3] = CaperucitaPerception.ARBOL_PERCEPTION;
-        mapa[1][2] = CaperucitaPerception.ARBOL_PERCEPTION;
-
-        //LOBO
-        //mapa[6][4] = CaperucitaPerception.LOBO_PERCEPTION; //Posicion inicial del lobo la seteamos? luego random
-        
-        this.setPosicionLobo(new int[] {6,4}); //Posicion inicial
-       
-        
-        //CAPERUCITA
-        this.setPosicionAgente(new int[]{POS_INI_FILA, POS_INI_COL});
+        inicializarMapa(N_ESCENARIO);
 		
 	}
 	
@@ -260,13 +152,13 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 	        mapa[0][3] = CaperucitaPerception.ARBOL_PERCEPTION;
 	        mapa[1][2] = CaperucitaPerception.ARBOL_PERCEPTION;
 
-	        //LOBO
-	        mapa[6][4] = CaperucitaPerception.LOBO_PERCEPTION; //Posicion inicial del lobo la seteamos? luego random
+	        this.setPosicionLobo(new int[] {6,4}); //Posicion inicial
+	        
 	        
 	        //CAPERUCITA
-	        this.setPosicionAgente(new int[]{5, 8});
+	        this.setPosicionAgente(new int[]{POS_INI_FILA, POS_INI_COL});
 			
-			
+			break;
 			
 		case 2:
 			//escenario 2
@@ -389,14 +281,15 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 	        mapa[7][6] = CaperucitaPerception.FLORES_PERCEPTION;
 	        mapa[8][6] = CaperucitaPerception.FLORES_PERCEPTION;
 	     
-
-	        //LOBO
-	        mapa[7][10] = CaperucitaPerception.LOBO_PERCEPTION; //Posicion inicial del lobo la seteamos? luego random
 	        
+	        //LOBO
+	        this.setPosicionLobo(new int[] {6,4}); //Posicion inicial
+	        
+	        	        
 	        //CAPERUCITA
-	        this.setPosicionAgente(new int[]{6, 3});
+	        this.setPosicionAgente(new int[]{POS_INI_FILA, POS_INI_COL});
 				
-			
+	        break;
 			
 			
 			
@@ -520,13 +413,14 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 	     
 
 	        //LOBO
-	        mapa[7][6] = CaperucitaPerception.LOBO_PERCEPTION; //Posicion inicial del lobo la seteamos? luego random
+	        this.setPosicionLobo(new int[] {6,5}); //Posicion inicial
 	        
+	        	        
 	        //CAPERUCITA
-	        //this.setPosicionAgente(new int[] {7,8 });//cambiar desp
+	        this.setPosicionAgente(new int[]{POS_INI_FILA, POS_INI_COL});
 				
 			
-					
+	        break;		
 			
 		
 		}
