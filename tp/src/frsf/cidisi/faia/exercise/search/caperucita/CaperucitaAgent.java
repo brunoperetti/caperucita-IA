@@ -66,7 +66,7 @@ public class CaperucitaAgent extends SearchBasedAgent{
 	     UniformCostSearch strategy = new UniformCostSearch(costFunction);
 		
 	         
-	      //BreathFirstSearch strategy = new BreathFirstSearch();
+	     // BreathFirstSearch strategy = new BreathFirstSearch();
 		
 		
 			//IStepCostFunction cost = new CostFunction();

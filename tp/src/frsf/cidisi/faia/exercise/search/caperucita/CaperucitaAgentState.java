@@ -38,7 +38,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 		posicionActual = new int[2];
 		posicionInicial = new int[2];
         cantDulcesRecolectados = 0;
-        vidasRestantes = 3;
+        vidasRestantes = 1;
         mapa = new int[9][14];
         this.initState();
     }
@@ -351,7 +351,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
     
     
     public boolean tieneVidas () {
-		if (vidasRestantes > 1) {
+		if (vidasRestantes > 0) {
 			return true;
 		}
     	

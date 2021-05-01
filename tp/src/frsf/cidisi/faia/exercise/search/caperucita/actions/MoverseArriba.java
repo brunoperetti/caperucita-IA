@@ -26,7 +26,7 @@ public class MoverseArriba extends SearchAction {
         	//mientras la celda de arriba no sea arbol
         	caperucitaState.setPosicionFila(fil-i);
         	caperucitaState.sumarCeldaVisitada();
-        	i++;
+        	
         	flag=true;
         	
         	if(caperucitaState.getMapa()[fil-i][col] == CaperucitaPerception.LOBO_PERCEPTION) {
@@ -39,7 +39,7 @@ public class MoverseArriba extends SearchAction {
         		caperucitaState.getMapa()[fil-i][col] = CaperucitaPerception.VACIO_PERCEPTION;        		
         	}
         
-        	
+        	i++;
         }
 
         if (flag==true) {
@@ -74,7 +74,7 @@ public class MoverseArriba extends SearchAction {
 			caperucitaAgentState.sumarCeldaVisitada();
         	caperucitaAgentState.setPosicionFila(fil-i); //esto No sabemos si va, porque ya está en el otro execute.
         	environmentState.sumarCeldaVisitada();
-        	i++;
+        	
         	flag=true;
         	
         	if(environmentState.getMapa()[fil-i][col] == CaperucitaPerception.LOBO_PERCEPTION) {
@@ -88,12 +88,12 @@ public class MoverseArriba extends SearchAction {
         		caperucitaAgentState.restarCosto();
         		environmentState.getMapa()[fil-i][col] = CaperucitaPerception.VACIO_PERCEPTION;        		
         	}
-           	
+           	i++;
            	
         }
 
         if (flag=true) {
-        	environmentState.moverLobo();
+        	//environmentState.moverLobo();
         	return environmentState;
         	
         	

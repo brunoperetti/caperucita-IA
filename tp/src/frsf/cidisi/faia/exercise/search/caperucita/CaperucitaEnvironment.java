@@ -47,7 +47,7 @@ public class CaperucitaEnvironment extends Environment {
         CaperucitaEnvironmentState environmentState = this.getEnvironmentState();
        
         
-        //environmentState.moverLobo(); PUSIMOS EL MÉTODO MOVERLOBO EN LOS OPERADORES DE MOVIMIENTO
+        environmentState.moverLobo(); //PUSIMOS EL MÉTODO MOVERLOBO EN LOS OPERADORES DE MOVIMIENTO
         // YA QUE SI LO UBICABAMOS ACA SE MOVIA INMEDIATAMENTE DESPUES DE ARRANCAR
           
         perception.setSensorArriba(this.getCeldasArriba(fil, col));

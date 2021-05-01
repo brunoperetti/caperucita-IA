@@ -37,7 +37,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 	@Override
 	public void initState() {
 		
-		vidasAgente = 3;
+		vidasAgente = 1;
 		// Primero llenamos todas las casillas como vacio, y despues reemplazamos algunas posiciones con otras percepciones.
         for (int fil = 0; fil < mapa.length; fil++) {
             for (int col = 0; col < mapa[0].length; col++) {
@@ -162,7 +162,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 	        mapa[0][3] = CaperucitaPerception.ARBOL_PERCEPTION;
 	        mapa[1][2] = CaperucitaPerception.ARBOL_PERCEPTION;
 
-	        this.setPosicionLobo(new int[] {5,10}); //Posicion inicial
+	        this.setPosicionLobo(new int[] {4,5}); //Posicion inicial
 	        
 	        
 	        //CAPERUCITA
@@ -530,18 +530,21 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 		int filaRandom = (int)(Math.random()*8+1);
 		int colRandom = (int)(Math.random()*13+1);
 		
-		while (! (mapa[filaRandom][colRandom]==CaperucitaPerception.VACIO_PERCEPTION && 
-						      (posicionCaperucita[0]!=filaRandom && posicionCaperucita[1]!=colRandom) )) {
+		
+		
+		while (this.mapa[filaRandom][colRandom] != CaperucitaPerception.VACIO_PERCEPTION /*|| this.posicionCaperucita[0] == filaRandom || this.posicionCaperucita[1] == colRandom*/) 
+		//while ( (mapa[filaRandom][colRandom]!=CaperucitaPerception.VACIO_PERCEPTION) 
+						      /*(posicionCaperucita[0]==filaRandom || posicionCaperucita[1]==colRandom)*/  { 
 			 
 			filaRandom = (int)(Math.random()*8+1);
 			 colRandom = (int)(Math.random()*13+1);
 		}
-	
+			
 		posicionLobo[0]= filaRandom;
 		posicionLobo[1]= colRandom;
 		
 		setPosicionLobo(posicionLobo); //setea vector y pos del mapa.
-			
+					
 	}
 
 
