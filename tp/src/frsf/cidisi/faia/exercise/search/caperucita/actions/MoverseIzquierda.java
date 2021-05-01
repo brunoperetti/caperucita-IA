@@ -38,6 +38,8 @@ public class MoverseIzquierda extends SearchAction {
         		caperucitaState.restarCosto();
         		caperucitaState.getMapa()[fil][col-j] = CaperucitaPerception.VACIO_PERCEPTION;        		
         	}
+        	
+        	
         }
 
         if (flag==true) {
@@ -74,6 +76,7 @@ public class MoverseIzquierda extends SearchAction {
         	flag=true;
         	
         	if(environmentState.getMapa()[fil][col-i] == CaperucitaPerception.LOBO_PERCEPTION) {
+        		caperucitaAgentState.restarVida();
         		environmentState.restarVidaAgente();
         	}
         	
@@ -82,11 +85,13 @@ public class MoverseIzquierda extends SearchAction {
         		caperucitaAgentState.restarCosto();
         		environmentState.getMapa()[fil][col-i] = CaperucitaPerception.VACIO_PERCEPTION;        		
         	}
+           	
+           	
         	
         }
 
         if (flag=true) {
-        	//environmentState.moverLobo();
+        	environmentState.moverLobo();
         	return environmentState;
         	
         }

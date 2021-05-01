@@ -10,8 +10,8 @@ import frsf.cidisi.faia.state.EnvironmentState;
 public class CaperucitaEnvironmentState extends EnvironmentState {
 
 	// :::: VARIABLES DE INIT STATE DEL AMBIENTE
-		public static final int POS_INI_FILA=6; //pos fila inicial agente
-		public static final int POS_INI_COL=10; // pos col inicial agente
+		public static final int POS_INI_FILA=5; //pos fila inicial agente
+		public static final int POS_INI_COL=11; // pos col inicial agente
 		public static final int N_ESCENARIO =1; // Valores posibles: 1, 2, o 3 según enunciado
 	
 	
@@ -47,6 +47,9 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
         
         celdasVisitadasAgente=0;
         inicializarMapa(N_ESCENARIO);
+        
+        //this.setPosicionLobo(new int[] {5,10});
+        //mapa[5][10]= CaperucitaPerception.LOBO_PERCEPTION;
         //mapa[5][8]=CaperucitaPerception.DULCE_PERCEPTION;
         //mapa[5][10]=CaperucitaPerception.DULCE_PERCEPTION;
         //mapa[7][10]=CaperucitaPerception.DULCE_PERCEPTION;
@@ -159,7 +162,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 	        mapa[0][3] = CaperucitaPerception.ARBOL_PERCEPTION;
 	        mapa[1][2] = CaperucitaPerception.ARBOL_PERCEPTION;
 
-	        this.setPosicionLobo(new int[] {6,4}); //Posicion inicial
+	        this.setPosicionLobo(new int[] {5,10}); //Posicion inicial
 	        
 	        
 	        //CAPERUCITA
@@ -452,7 +455,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
         //MANDO la matriz a la interfaz gráfica.
         try
         {
-            Thread.sleep(1000);
+            Thread.sleep(200);
         }
         catch (InterruptedException e)
         {

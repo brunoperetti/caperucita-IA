@@ -8,8 +8,8 @@ import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
 public class CaperucitaAgentState extends SearchBasedAgentState {
 
 	// :::: VARIABLES DE INIT STATE DEL AGENTE
-	public static final int POS_INI_FILA=6;
-	public static final int POS_INI_COL=10;
+	public static final int POS_INI_FILA=5;
+	public static final int POS_INI_COL=11;
 		
 	
 	private int[] posicionActual;
@@ -387,6 +387,37 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 	public void restarCosto() {
 		celdasVisitadas=celdasVisitadas-100;
 		
+	}
+
+	public double getDistanciaACampo() {
+		double resultado=0;
+	    int filaFlores=0;
+	    int colFlores=0;
+	    
+	    double resultadoX=0;
+	    double resultadoY=0;
+	    
+	    for (int fila = 0; fila < mapa.length; fila++) {
+	        for (int col = 0; col < mapa[0].length; col++) {
+	        	
+	        	// aca la duda q tengo es xq tenemos 2 celdas con flores
+	            if (mapa[fila][col] == CaperucitaPerception.FLORES_PERCEPTION) {
+	               filaFlores=fila;
+	               colFlores=col;
+	            }
+	        }
+	    }
+	    
+	    
+	    // aca la posicion 0 es igual a las columnas ya q es lo q se mueve en el eje X o no??
+	    resultadoX=Math.pow(2,filaFlores - posicionActual[0]);
+	    resultadoY=Math.pow(2,colFlores - posicionActual[1]);
+	    
+	    resultado=Math.sqrt(resultadoX+resultadoY);
+	  
+	    
+	    
+	    return resultado;
 	}
     
   

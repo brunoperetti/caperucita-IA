@@ -15,8 +15,11 @@ import frsf.cidisi.faia.exercise.search.caperucita.actions.MoverseDerecha;
 import frsf.cidisi.faia.exercise.search.caperucita.actions.MoverseIzquierda;
 import frsf.cidisi.faia.exercise.search.caperucita.actions.ReiniciarPartida;
 import frsf.cidisi.faia.exercise.search.caperucita.actions.TomarDulce;
+import frsf.cidisi.faia.solver.search.AStarSearch;
 import frsf.cidisi.faia.solver.search.BreathFirstSearch;
 import frsf.cidisi.faia.solver.search.DepthFirstSearch;
+import frsf.cidisi.faia.solver.search.GreedySearch;
+import frsf.cidisi.faia.solver.search.IEstimatedCostFunction;
 import frsf.cidisi.faia.solver.search.IStepCostFunction;
 import frsf.cidisi.faia.solver.search.Search;
 import frsf.cidisi.faia.solver.search.UniformCostSearch;
@@ -64,6 +67,15 @@ public class CaperucitaAgent extends SearchBasedAgent{
 		
 	         
 	      //BreathFirstSearch strategy = new BreathFirstSearch();
+		
+		
+			//IStepCostFunction cost = new CostFunction();
+	        //IEstimatedCostFunction heuristic = new Heuristic();
+	        //AStarSearch strategy = new AStarSearch(cost, heuristic);
+		
+			//IEstimatedCostFunction heuristic = new Heuristic();
+	        //GreedySearch strategy = new GreedySearch(heuristic);
+		
         /**
          * Another search strategy examples:
          * 
