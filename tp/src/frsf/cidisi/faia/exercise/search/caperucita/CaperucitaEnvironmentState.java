@@ -10,8 +10,8 @@ import frsf.cidisi.faia.state.EnvironmentState;
 public class CaperucitaEnvironmentState extends EnvironmentState {
 
 	// :::: VARIABLES DE INIT STATE DEL AMBIENTE
-		public static final int POS_INI_FILA=4; //pos fila inicial agente
-		public static final int POS_INI_COL=11; // pos col inicial agente
+		public static final int POS_INI_FILA=6; //pos fila inicial agente
+		public static final int POS_INI_COL=10; // pos col inicial agente
 		public static final int N_ESCENARIO =1; // Valores posibles: 1, 2, o 3 según enunciado
 	
 	
@@ -23,6 +23,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
     private int[] posicionArboles;
     private int vidasAgente;
     private int dulcesAgente;
+    private int celdasVisitadasAgente;
 	
     public CaperucitaEnvironmentState() {
     	mapa = new int[9][14];
@@ -44,7 +45,12 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
             }
         }
         
+        celdasVisitadasAgente=0;
         inicializarMapa(N_ESCENARIO);
+        //mapa[5][8]=CaperucitaPerception.DULCE_PERCEPTION;
+        //mapa[5][10]=CaperucitaPerception.DULCE_PERCEPTION;
+        //mapa[7][10]=CaperucitaPerception.DULCE_PERCEPTION;
+
 		
 	}
 	
@@ -87,6 +93,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 	        
 	        mapa[3][0] = CaperucitaPerception.ARBOL_PERCEPTION;
 	        mapa[3][1] = CaperucitaPerception.ARBOL_PERCEPTION;
+	        mapa[3][2] = CaperucitaPerception.ARBOL_PERCEPTION;
 	        mapa[3][9] = CaperucitaPerception.ARBOL_PERCEPTION;
 	        mapa[3][12] = CaperucitaPerception.ARBOL_PERCEPTION;
 	        mapa[3][13] = CaperucitaPerception.ARBOL_PERCEPTION;
@@ -443,7 +450,16 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
         str = str + " ]";
 
         //MANDO la matriz a la interfaz gráfica.
-        Mapa.dibujarMapa(mapa, posicionCaperucita, vidasAgente, dulcesAgente);
+        try
+        {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        Mapa.dibujarMapa(mapa, posicionCaperucita, vidasAgente, dulcesAgente, celdasVisitadasAgente);
         
         return str;
         
@@ -615,6 +631,12 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 	public void sumarDulceRecolectado() {
 		this.dulcesAgente = dulcesAgente+1;
 		
+	}
+
+
+
+	public void sumarCeldaVisitada() {
+		celdasVisitadasAgente = celdasVisitadasAgente+1;
 	}
 	
 }

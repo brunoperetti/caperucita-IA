@@ -31,21 +31,23 @@ public class MoverseAbajo extends SearchAction {
         	flag=true;
         	
         	//SE CHOCA CON LOBO?
-        	if(caperucitaState.getMapa()[fil][col] == CaperucitaPerception.LOBO_PERCEPTION) {
+        	if(caperucitaState.getMapa()[fil+i][col] == CaperucitaPerception.LOBO_PERCEPTION) {
         		caperucitaState.restarVida();
         	}
         	
         	//DULCE?
         	
-        	if(caperucitaState.getMapa()[fil][col] == CaperucitaPerception.DULCE_PERCEPTION) {
+        	if(caperucitaState.getMapa()[fil+i][col] == CaperucitaPerception.DULCE_PERCEPTION) {
         		caperucitaState.sumarDulceRecolectado();
-        		caperucitaState.getMapa()[fil][col] = CaperucitaPerception.VACIO_PERCEPTION;        		
+        		caperucitaState.restarCosto();
+        		caperucitaState.getMapa()[fil+i][col] = CaperucitaPerception.VACIO_PERCEPTION;        		
         	}
         	
 	
         }
 
         if (flag==true) {
+        	
         	return caperucitaState;
         }
         else return null;       	
@@ -76,19 +78,20 @@ public class MoverseAbajo extends SearchAction {
 			environmentState.setPosicionFilaCaperucita(fil+i);
 			caperucitaAgentState.sumarCeldaVisitada();
         	caperucitaAgentState.setPosicionFila(fil+i); //esto No sabemos si va, porque ya está en el otro execute.
-
+        	environmentState.sumarCeldaVisitada();
         	i++;
         	flag=true;
         	
-        	if(environmentState.getMapa()[fil][col] == CaperucitaPerception.LOBO_PERCEPTION) {
+        	if(environmentState.getMapa()[fil+i][col] == CaperucitaPerception.LOBO_PERCEPTION) {
         		environmentState.restarVidaAgente();
         	}
         	
         	//DULCE?
         	
-        	if(environmentState.getMapa()[fil][col] == CaperucitaPerception.DULCE_PERCEPTION) {
+        	if(environmentState.getMapa()[fil+i][col] == CaperucitaPerception.DULCE_PERCEPTION) {
         		environmentState.sumarDulceRecolectado();
-        		environmentState.getMapa()[fil][col] = CaperucitaPerception.VACIO_PERCEPTION;        		
+        		caperucitaAgentState.restarCosto();
+        		environmentState.getMapa()[fil+i][col] = CaperucitaPerception.VACIO_PERCEPTION;        		
         	}
         	
         	
@@ -96,6 +99,7 @@ public class MoverseAbajo extends SearchAction {
 
         if (flag=true) {
         	//environmentState.moverLobo();
+        	
         	return environmentState;
         	
         	

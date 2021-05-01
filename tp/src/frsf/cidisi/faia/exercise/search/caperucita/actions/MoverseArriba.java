@@ -29,18 +29,20 @@ public class MoverseArriba extends SearchAction {
         	i++;
         	flag=true;
         	
-        	if(caperucitaState.getMapa()[fil][col] == CaperucitaPerception.LOBO_PERCEPTION) {
+        	if(caperucitaState.getMapa()[fil-i][col] == CaperucitaPerception.LOBO_PERCEPTION) {
         		caperucitaState.restarVida();
         	}
         	
-        	if(caperucitaState.getMapa()[fil][col] == CaperucitaPerception.DULCE_PERCEPTION) {
+        	if(caperucitaState.getMapa()[fil-i][col] == CaperucitaPerception.DULCE_PERCEPTION) {
         		caperucitaState.sumarDulceRecolectado();
-        		caperucitaState.getMapa()[fil][col] = CaperucitaPerception.VACIO_PERCEPTION;        		
+        		caperucitaState.restarCosto();
+        		caperucitaState.getMapa()[fil-i][col] = CaperucitaPerception.VACIO_PERCEPTION;        		
         	}
         	
         }
 
         if (flag==true) {
+        	
         	return caperucitaState;
         }
         else return null;       	
@@ -70,17 +72,18 @@ public class MoverseArriba extends SearchAction {
 			environmentState.setPosicionFilaCaperucita(fil-i);
 			caperucitaAgentState.sumarCeldaVisitada();
         	caperucitaAgentState.setPosicionFila(fil-i); //esto No sabemos si va, porque ya está en el otro execute.
-
+        	environmentState.sumarCeldaVisitada();
         	i++;
         	flag=true;
         	
-        	if(environmentState.getMapa()[fil][col] == CaperucitaPerception.LOBO_PERCEPTION) {
+        	if(environmentState.getMapa()[fil-i][col] == CaperucitaPerception.LOBO_PERCEPTION) {
         		environmentState.restarVidaAgente();
         	}
         	
-           	if(environmentState.getMapa()[fil][col] == CaperucitaPerception.DULCE_PERCEPTION) {
+           	if(environmentState.getMapa()[fil-i][col] == CaperucitaPerception.DULCE_PERCEPTION) {
         		environmentState.sumarDulceRecolectado();
-        		environmentState.getMapa()[fil][col] = CaperucitaPerception.VACIO_PERCEPTION;        		
+        		caperucitaAgentState.restarCosto();
+        		environmentState.getMapa()[fil-i][col] = CaperucitaPerception.VACIO_PERCEPTION;        		
         	}
         }
 

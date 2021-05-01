@@ -35,7 +35,7 @@ public class CaperucitaAgent extends SearchBasedAgent{
         // Creación de operadores
         Vector<SearchAction> operators = new Vector<SearchAction>();
         
-        operators.addElement(new TomarDulce());
+       // operators.addElement(new TomarDulce());
         operators.addElement(new MoverseArriba());
         operators.addElement(new MoverseAbajo());
         operators.addElement(new MoverseDerecha());
@@ -59,11 +59,11 @@ public class CaperucitaAgent extends SearchBasedAgent{
 			//DepthFirstSearch strategy = new DepthFirstSearch();
 
 		
-	       //IStepCostFunction costFunction = new CostFunction();
-	       //UniformCostSearch strategy = new UniformCostSearch(costFunction);
+	     IStepCostFunction costFunction = new CostFunction();
+	     UniformCostSearch strategy = new UniformCostSearch(costFunction);
 		
 	         
-	        BreathFirstSearch strategy = new BreathFirstSearch();
+	      //BreathFirstSearch strategy = new BreathFirstSearch();
         /**
          * Another search strategy examples:
          * 
@@ -92,7 +92,7 @@ public class CaperucitaAgent extends SearchBasedAgent{
 
         /* Generate an XML file with the search tree. It can also be generated
          * in other formats like PDF with PDF_TREE */
-        searchSolver.setVisibleTree(Search.EFAIA_TREE);
+        searchSolver.setVisibleTree(Search.XML_TREE);
 
         // Set the Search searchSolver.
         this.setSolver(searchSolver);

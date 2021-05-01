@@ -8,8 +8,8 @@ import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
 public class CaperucitaAgentState extends SearchBasedAgentState {
 
 	// :::: VARIABLES DE INIT STATE DEL AGENTE
-	public static final int POS_INI_FILA=4;
-	public static final int POS_INI_COL=11;
+	public static final int POS_INI_FILA=6;
+	public static final int POS_INI_COL=10;
 		
 	
 	private int[] posicionActual;
@@ -54,7 +54,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
         int[] positionIniObj = ((CaperucitaAgentState) obj).getPosicionInicial();
         //int dulcesObj =  ((CaperucitaAgentState) obj).getCantDulcesRecolectados();
         int vidasObj = ((CaperucitaAgentState) obj).getVidasRestantes();
-      //  int celdasObj =  ((CaperucitaAgentState) obj).getCeldasVisitadas();
+        int celdasObj =  ((CaperucitaAgentState) obj).getCeldasVisitadas();
 
        /*for (int row = 0; row < mapa.length; row++) {
             for (int col = 0; col < mapa[0].length; col++) {
@@ -80,9 +80,9 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
             return false;
         }
         
-       /* if (celdasVisitadas != celdasObj) {
+        if (this.getCeldasVisitadas() != celdasObj) {
         	return false;
-        }*/
+        }
                 
         return true;
 		
@@ -327,6 +327,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
         this.mapa[fil][col] = value;
     }
     
+    
     public void sumarDulceRecolectado () {
     	this.cantDulcesRecolectados= this.cantDulcesRecolectados+1;
     }
@@ -382,6 +383,11 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
     	}
     	return false;
     }
+
+	public void restarCosto() {
+		celdasVisitadas=celdasVisitadas-100;
+		
+	}
     
   
 

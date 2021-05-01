@@ -23,7 +23,7 @@ public class Mapa {
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public static void dibujarMapa (int[][]matriz, int[] posCaperucita, int vidasAgente, int dulcesAgente) {
+	public static void dibujarMapa (int[][]matriz, int[] posCaperucita, int vidasAgente, int dulcesAgente, int celdasVisitadas) {
 			
 		mapa = setMatriz(matriz, posCaperucita, mapa);
 		
@@ -67,10 +67,12 @@ public class Mapa {
 		JLabel labelVidas = new JLabel();
 		JLabel labelDulces = new JLabel();
 		JLabel labelPosicion = new JLabel();
+		JLabel labelCeldas = new JLabel();
 		labelTitulo.setText("CAPERUCITA - IA");
 		labelPosicion.setText("Posición agente: ("+posicionAgente[0]+", "+posicionAgente[1]+") --");
 		labelVidas.setText("Vidas restantes: "+ vidas +" --");
-		labelDulces.setText("Dulces recolectados: "+ dulces);
+		labelDulces.setText("Dulces recolectados: "+ dulces + " --");
+		labelCeldas.setText("Celdas visitadas: "+celdasVisitadas);
 		FlowLayout fl_panelInfo = new FlowLayout(FlowLayout.CENTER, 5, 5);
 		panelInfo.setLayout(fl_panelInfo);
 		panelTitulo.setLayout(null);
@@ -83,6 +85,7 @@ public class Mapa {
 		panelInfo.add(labelPosicion);
 		panelInfo.add(labelVidas);
 		panelInfo.add(labelDulces);
+		panelInfo.add(labelCeldas);
         
         
         /*for (int i = 0; i < 104; i++) {
@@ -153,9 +156,10 @@ public class Mapa {
 	public static int[][] setMatriz (int [][]matriz, int[] posCaperucita, int[][] mapaAnterior) {
 		int mapaAux[][] = new int[9][14];
 		
+		// si hay posiciones anteriores de caperucita, dejarlas así. Sino, ponele el valor que tenga
 		for(int i=0;i<matriz.length;i++) {
 			for (int j=0; j<matriz[0].length;j++) {
-				if ((mapaAnterior[i][j]==20)) 
+				if ((mapaAnterior[i][j]==20 && matriz[i][j]!=CaperucitaPerception.LOBO_PERCEPTION)) 
 					mapaAux[i][j] = 20;
 				else 
 					mapaAux[i][j] = matriz[i][j];
@@ -164,13 +168,13 @@ public class Mapa {
 		
 		int caperucitaI =posCaperucita[0];
 		int caperucitaJ =posCaperucita[1];
-		
+		//SET POSICION CAPERUCITA
 		mapaAux[caperucitaI][caperucitaJ]=10;
 		
 		//PARA DIBUJAR CAMINO RECORRIDO
 		for(int i=0;i<matriz.length;i++) {
 			for (int j=0; j<matriz[0].length;j++) {
-				if ((mapaAnterior[i][j] == 10) && (matriz[i][j] != 10) && (matriz[i][j]!=4)) 
+				if ((mapaAnterior[i][j] == 10) && (matriz[i][j] != 10) && (matriz[i][j]!=CaperucitaPerception.LOBO_PERCEPTION)) 
 					mapaAux[i][j]=20;//20 significa que caperucita estuvo ahi antes.
 			}
 		}
