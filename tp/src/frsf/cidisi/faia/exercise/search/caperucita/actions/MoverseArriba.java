@@ -68,7 +68,7 @@ public class MoverseArriba extends SearchAction {
 		int i=1;
 		boolean flag = false;
 		
-		while (environmentState.getPosicionMapaCaperucita(fil-i,col)!=CaperucitaPerception.ARBOL_PERCEPTION && ((fil-i)>=0)) {
+		while (environmentState.getPosicionMapaCaperucita(fil-i,col)!=CaperucitaPerception.ARBOL_PERCEPTION && ((fil-i)>0)) {
         	//mientras la celda de arriba no sea arbol
 			environmentState.setPosicionFilaCaperucita(fil-i);
 			caperucitaAgentState.sumarCeldaVisitada();

@@ -10,17 +10,19 @@ import frsf.cidisi.faia.state.EnvironmentState;
 public class CaperucitaEnvironmentState extends EnvironmentState {
 
 	// :::: VARIABLES DE INIT STATE DEL AMBIENTE
-		public static final int POS_INI_FILA=5; //pos fila inicial agente
-		public static final int POS_INI_COL=11; // pos col inicial agente
-		public static final int N_ESCENARIO =1; // Valores posibles: 1, 2, o 3 según enunciado
-	
+		public static final int POS_INI_FILA=6; //pos fila inicial agente
+		public static final int POS_INI_COL=3; // pos col inicial agente
+		public static final int N_ESCENARIO =2; // Valores posibles: 1, 2, o 3 según enunciado
+		// Posicion inicial ESCENARIO1 > (5,11)
+		// Posicion inicial ESCENARIO2 > (6,3)
+		// Posicion inicial ESCENARIO3 > (4,11)
 	
 	private int[][] mapa;
     private int[] posicionCaperucita;
-    private int[] posicionDulces;
+   // private int[] posicionDulces;
     private int[] posicionLobo;
-    private int[] posicionFlores;
-    private int[] posicionArboles;
+    //private int[] posicionFlores;
+    //private int[] posicionArboles;
     private int vidasAgente;
     private int dulcesAgente;
     private int celdasVisitadasAgente;
@@ -37,7 +39,7 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
 	@Override
 	public void initState() {
 		
-		vidasAgente = 1;
+		vidasAgente = 3;
 		// Primero llenamos todas las casillas como vacio, y despues reemplazamos algunas posiciones con otras percepciones.
         for (int fil = 0; fil < mapa.length; fil++) {
             for (int col = 0; col < mapa[0].length; col++) {
@@ -452,16 +454,21 @@ public class CaperucitaEnvironmentState extends EnvironmentState {
         }
         str = str + " ]";
 
-        //MANDO la matriz a la interfaz gráfica.
+        
+        
+        
+        //sleep para simular animacion. walt disney quien te conoce!!
         try
         {
-            Thread.sleep(200);
+            Thread.sleep(1000);
         }
         catch (InterruptedException e)
         {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        
+        //Mando la matriz a la interfaz gráfica.
         Mapa.dibujarMapa(mapa, posicionCaperucita, vidasAgente, dulcesAgente, celdasVisitadasAgente);
         
         return str;

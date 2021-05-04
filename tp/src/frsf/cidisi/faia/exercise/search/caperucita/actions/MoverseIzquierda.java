@@ -39,6 +39,7 @@ public class MoverseIzquierda extends SearchAction {
         		caperucitaState.getMapa()[fil][col-j] = CaperucitaPerception.VACIO_PERCEPTION;        		
         	}
         	
+        	
         	j++;
         }
 

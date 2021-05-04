@@ -8,8 +8,8 @@ import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
 public class CaperucitaAgentState extends SearchBasedAgentState {
 
 	// :::: VARIABLES DE INIT STATE DEL AGENTE
-	public static final int POS_INI_FILA=5;
-	public static final int POS_INI_COL=11;
+	public static final int POS_INI_FILA=6;
+	public static final int POS_INI_COL=3;
 		
 	
 	private int[] posicionActual;
@@ -38,7 +38,7 @@ public class CaperucitaAgentState extends SearchBasedAgentState {
 		posicionActual = new int[2];
 		posicionInicial = new int[2];
         cantDulcesRecolectados = 0;
-        vidasRestantes = 1;
+        vidasRestantes = 3;
         mapa = new int[9][14];
         this.initState();
     }
