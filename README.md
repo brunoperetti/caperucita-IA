@@ -1,4 +1,5 @@
 # TP Inteligencia Artificial: Caperucita
+_Trabajo práctico realizado para la cátedra de Inteligencia Artificial, de 5to año de Ingeniería en Sistemas de Información, UTN FRSF._
 
 ## Objetivo
 
@@ -19,4 +20,5 @@ Código en java basado en el framework FAIA, e interfaces gráficas realizadas c
 ## Instrucciones
 
 1. Descargar el [framework FAIA](https://code.google.com/archive/p/faia/), e importar junto con el proyecto.
-2. Elegir uno de los 3 escenarios pre-cargados, en la clase CaperucitaEnvironment.java
+2. Elegir posición inicial y uno de los 3 escenarios pre-cargados, en la clase CaperucitaEnvironmentState.java
+3. Elegir una estrategia de búsqueda del agente (Profundidad, anchura, costo uniforme, o heurística) en la clase CaperucitaAgent.java
